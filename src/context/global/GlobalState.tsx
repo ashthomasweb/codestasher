@@ -26,9 +26,7 @@ import {
 /** INITIAL TYPE DECLARATION ***************************************/
 
 interface initialStateType {
-  userObj: {
-    name: string
-  }
+  userObj: any
   globalDisplay: {
     isAdminPage: boolean
     isWelcomePage: boolean
@@ -49,9 +47,7 @@ interface initialStateType {
 /** INITIAL STATE DECLARATION **************************************/
 
 const initialState = {
-  userObj: {
-    name: 'Ash Thomas',
-  },
+  userObj: null,
   globalDisplay: {
     isAdminPage: false,
     isWelcomePage: true,
