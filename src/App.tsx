@@ -53,7 +53,7 @@ const App = (props: any): JSX.Element => {
   let userAuth = getAuth()
   useEffect(() => {
     authListener(display, dispatch, globalDispatch, userAuth)
-  }, [dispatch, display, globalDispatch, userAuth])
+  }, [dispatch])
 
   return <DisplayPane />
 }

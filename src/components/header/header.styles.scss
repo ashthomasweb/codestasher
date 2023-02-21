@@ -8,7 +8,7 @@
 * NOTES:
 *   - 
 
-* (c) Copyright Kloudlog LLC
+* (c) Copyright Ashley Thomas
 * Usage Rights: Not for public use or redistribution.
 
 ******************************************************************************/

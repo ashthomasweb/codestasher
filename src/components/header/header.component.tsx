@@ -9,7 +9,7 @@
 * NOTES:
 *   - 
 
-* (c) Copyright Kloudlog LLC
+* (c) Copyright Ashley Thomas
 * Usage Rights: Not for public use or redistribution.
 
 ******************************************************************************/
@@ -166,6 +166,7 @@ const Header = (props: any): JSX.Element => {
       ref={headerRef}>
       <div className='title-control-wrapper'>
         <h1
+         data-testid='animated-header'
          onMouseOver={titleAnimator}
         >
           <span

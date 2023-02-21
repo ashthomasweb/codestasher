@@ -1,3 +1,24 @@
+/******************************************************************************
+* FILENAME:
+*   look-up-methods.ts
+
+* DESCRIPTION:
+*   Functions relating to looking up entries within a data structure
+
+* NOTES:
+*   - 
+
+* (c) Copyright Ashley Thomas
+* Usage Rights: Not for public use or redistribution.
+
+******************************************************************************/
+
+/**
+ * Finds the index of a specfic object within an array
+ * @param arrayObj The array literal to search
+ * @param id The id of the object literal to find
+ * @returns Number: The index of passed in id
+ */
 export const indexFinder = (
   arrayObj: any,
   id: string | number | null
@@ -42,13 +63,12 @@ export const treeSearchAndUpdateInPlace = (
     self.codePacket = codePacket
   }
 
-//   function addEntryToPacket(self: any) {
-//     // debugger
-// console.log('test')
-//     console.log(self)
-//     self.entries.push(newEntry)
-//   }
-
+  //   function addEntryToPacket(self: any) {
+  //     // debugger
+  // console.log('test')
+  //     console.log(self)
+  //     self.entries.push(newEntry)
+  //   }
 
   let operation
   if (toDelete && newEntry === null) {
@@ -94,11 +114,7 @@ export const treeSearchAndUpdateInPlace = (
   return treeObj
 }
 
-export const moveEntry = (
-  dragData: any,
-  workingObject: any,
-  entry: any,
-) => {
+export const moveEntry = (dragData: any, workingObject: any, entry: any) => {
   let destinationId = dragData.currentDropId || dragData.currentDropPaneId
   let draggedEntryId = dragData.currentDraggingId
   let chain =
@@ -131,7 +147,6 @@ export const findTreeEntry = (
     entry = parent.entries[indexFinder(parent.entries, entryId)]
   }
   if (depth === 3) {
-    
     let gParent = treeObj.entries[indexFinder(treeObj.entries, entryChain[1])]
     let parent = gParent.entries[indexFinder(gParent.entries, entryChain[2])]
     entry = parent.entries[indexFinder(parent.entries, entryId)]
@@ -139,10 +154,7 @@ export const findTreeEntry = (
   return entry
 }
 
-export const findTreeEntryParent = (
-  treeObj: any,
-  entryChain: any[]
-) => {
+export const findTreeEntryParent = (treeObj: any, entryChain: any[]) => {
   let parentEntry
   let depth = entryChain.length
   if (depth === 1) {
@@ -163,3 +175,5 @@ export const findTreeEntryParent = (
 export const removeEntryFromArray = (entry: any, parentEntry: any) => {
   return parentEntry.entries.filter((item: any) => item.id !== entry.id)
 }
+
+/* END of document ***********************************************************/
