@@ -1,6 +1,6 @@
 /******************************************************************************
 * FILENAME:
-*   new.mjs
+*   add-pane.component.tsx
 
 * DESCRIPTION:
 *   
@@ -13,7 +13,7 @@
 
 ******************************************************************************/
 
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import { useContext, useRef, useState } from 'react'
 import { MainContext } from '../../context/main/MainState'
 import { GlobalContext } from '../../context/global/GlobalState'
 import cloneDeep from 'lodash.clonedeep'
@@ -62,7 +62,6 @@ const AddPane = (props: any): JSX.Element => {
   } = useContext(MainContext)
   const {
     state: { userObj },
-    globalDispatch,
   } = useContext(GlobalContext)
 
   let [lengthAlert, setLengthAlert]: any = useState(false)

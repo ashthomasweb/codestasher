@@ -16,7 +16,7 @@
 /**
  * Finds the index of a specfic object within an array
  * @param arrayObj The array literal to search
- * @param id The id of the object literal to find
+ * @param id The id of the object literal to find - must be in top level
  * @returns Number: The index of passed in id
  */
 export const indexFinder = (

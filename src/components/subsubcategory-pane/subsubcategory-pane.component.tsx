@@ -1,6 +1,6 @@
 /******************************************************************************
 * FILENAME:
-*   new.mjs
+*   subsubcategory-pane.component.tsx
 
 * DESCRIPTION:
 *   
@@ -13,11 +13,11 @@
 
 ******************************************************************************/
 
-import React, { useContext, useEffect, useState } from 'react'
+import { useContext } from 'react'
 import { MainContext } from '../../context/main/MainState'
 import { GlobalContext } from '../../context/global/GlobalState'
 
-import { 
+import {
   /* Assets */
   /* Database */
   /* Helper Functions */
@@ -34,31 +34,11 @@ const SubSubcategoryPane = (props: any): JSX.Element => {
     state: { display, workingObject },
     dispatch,
   } = useContext(MainContext)
-    const {
-      state: { globalDragData, subSubPaneEntry },
-      globalDispatch,
-    } = useContext(GlobalContext)
+  const {
+    state: { globalDragData },
+    globalDispatch,
+  } = useContext(GlobalContext)
 
-  // const myFunction = (e: any) => {
-  
-  // }
-
-  // useEffect(() => {
-   
-  // }, [])  
-
-  // useEffect(() => {
-  //   function namedFunction(e: any) {
-
-  //   }
-  //   window.addEventListener('event', namedFunction)
-
-  //   return function cleanupEvListener() {
-  //     window.removeEventListener('event', namedFunction)
-  //   }
-  // }, [])
-
-  
   const closePane = (e: any) => {
     dispatch({
       type: 'TOG_SUBSUBCAT_PANE',
@@ -102,15 +82,21 @@ const SubSubcategoryPane = (props: any): JSX.Element => {
       <p>{display.currentSubEntryData.subtitle}</p>
       {workingObject.entries[
         indexFinder(workingObject.entries, display.currentSubEntryData.id)
-      ] && 
-      
-      workingObject?.entries[
-        indexFinder(workingObject.entries, display.currentSubEntryData?.id)
-      ]?.entries.map((entry: any, index: number) => {
-        if (entry.deletedAt === null) {
-          return <Entry key={index} data={entry} parentChain={display.currentSubEntryData.chain} pane='subsub' />
-        } else return
-      })}
+      ] &&
+        workingObject?.entries[
+          indexFinder(workingObject.entries, display.currentSubEntryData?.id)
+        ]?.entries.map((entry: any, index: number) => {
+          if (entry.deletedAt === null) {
+            return (
+              <Entry
+                key={index}
+                data={entry}
+                parentChain={display.currentSubEntryData.chain}
+                pane='subsub'
+              />
+            )
+          } else {return null }
+        })}
       <button onClick={closePane}>X</button>
       <button
         onClick={addItem}

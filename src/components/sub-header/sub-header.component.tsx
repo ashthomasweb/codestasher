@@ -1,6 +1,6 @@
 /******************************************************************************
 * FILENAME:
-*   new.mjs
+*   sub-header.component.tsx
 
 * DESCRIPTION:
 *   
@@ -13,7 +13,7 @@
 
 ******************************************************************************/
 
-import React, { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import { MainContext } from '../../context/main/MainState'
 import { GlobalContext } from '../../context/global/GlobalState'
 
@@ -45,17 +45,6 @@ const SubHeader = (props: any): JSX.Element => {
     })
   }
 
-  // useEffect(() => {
-  //   function namedFunction(e: any) {
-
-  //   }
-  //   window.addEventListener('event', namedFunction)
-
-  //   return function cleanupEvListener() {
-  //     window.removeEventListener('event', namedFunction)
-  //   }
-  // }, [])
-
   return (
     <div className='sub-header-container' style={{height: `${display.subheaderHeight}px`, top: `${display.headerHeight}px` }}>
       {primaryCategories.map((category: string | null, index: number) => {
@@ -68,4 +57,4 @@ const SubHeader = (props: any): JSX.Element => {
 
 export default SubHeader
 
-// END of document
+/* END of document ***********************************************************/

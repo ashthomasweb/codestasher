@@ -3,9 +3,7 @@
 *   user-drop-menu.component.tsx
 
 * DESCRIPTION:
-*   This is an area to place a general description of the file. Please limit
-*   line length to less than 80. The header delimiter is 80 characters long.
-*   Place an asterisk in column 1 to continue blocked comments.
+*   
 
 * NOTES:
 *   - 
@@ -15,8 +13,7 @@
 
 ******************************************************************************/
 
-
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { MainContext } from '../../context/main/MainState'
 import { GlobalContext } from '../../context/global/GlobalState'
 import { getAuth } from 'firebase/auth'
@@ -35,11 +32,6 @@ const UserDropMenu = (props: any): JSX.Element => {
   const { dispatch } = useContext(MainContext)
   const { globalDispatch } = useContext(GlobalContext)
 
-
-  // function accountSettings() {
-  //   alert('Open Account Settings Pane')
-  // }
-
   function signOutHandler() {
     const auth = getAuth()
     auth.signOut()
@@ -50,12 +42,6 @@ const UserDropMenu = (props: any): JSX.Element => {
 
   return (
     <div className='user-drop-menu'>
-      {/* <button
-        className='drop-item drop-down-button'
-        type='button'
-        onClick={accountSettings}>
-        Account Settings
-      </button> */}
       <button
         className='drop-item drop-down-button'
         type='button'

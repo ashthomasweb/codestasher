@@ -8,6 +8,7 @@
 * NOTES:
 *   - 
 
+* (c) Copyright Ashley Thomas
 * Usage Rights: Not for public use or redistribution.
 
 ******************************************************************************/

@@ -1,4 +1,18 @@
-import React from 'react'
+/******************************************************************************
+* FILENAME:
+*   App.tsx
+
+* DESCRIPTION:
+*   Primary App component
+
+* NOTES:
+*   - 
+
+* (c) Copyright Ashley Thomas
+* Usage Rights: Not for public use or redistribution.
+
+******************************************************************************/
+
 import { useContext, useEffect } from 'react'
 import { MainContext } from './context/main/MainState'
 import { GlobalContext } from './context/global/GlobalState'
@@ -20,10 +34,7 @@ const App = (props: any): JSX.Element => {
     state: { display },
     dispatch,
   } = useContext(MainContext)
-  const {
-    
-    globalDispatch,
-  } = useContext(GlobalContext)
+  const { globalDispatch } = useContext(GlobalContext)
 
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -39,10 +50,6 @@ const App = (props: any): JSX.Element => {
     }
   }, [dispatch])
 
-  // dispatch({
-  //   type: 'SET_WORKING_OBJECT',
-  //   payload: { workingObject: guestData }
-  // })
   useEffect(() => {
     dispatch({
       type: 'SET_PRIMARY_CATEGORIES',
@@ -59,3 +66,5 @@ const App = (props: any): JSX.Element => {
 }
 
 export default App
+
+/* END of document ***********************************************************/

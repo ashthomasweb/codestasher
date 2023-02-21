@@ -3,9 +3,7 @@
 *   sign-in-up.component.tsx
 
 * DESCRIPTION:
-*   This is an area to place a general description of the file. Please limit
-*   line length to less than 80. The header delimiter is 80 characters long.
-*   Place an asterisk in column 1 to continue blocked comments.
+*  
 
 * NOTES:
 *   - 
@@ -14,7 +12,6 @@
 * Usage Rights: Not for public use or redistribution.
 
 ******************************************************************************/
-
 
 import { useContext } from 'react'
 import { MainContext } from '../../context/main/MainState'

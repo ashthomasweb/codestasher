@@ -1,6 +1,6 @@
 /******************************************************************************
 * FILENAME:
-*   new.mjs
+*   pane-container.component.tsx
 
 * DESCRIPTION:
 *   

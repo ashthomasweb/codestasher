@@ -8,6 +8,7 @@
 * NOTES:
 *   - 
 
+* (c) Copyright Ashley Thomas
 * Usage Rights: Not for public use or redistribution.
 
 ******************************************************************************/
@@ -42,7 +43,6 @@ export const GlobalReducer = (state: any, action: any) => {
       }
     }
 
-    //   /* DISPLAY PANE */
 
     case 'ADMIN_PAGE_ON': {
       // console.log(`Trace: ADMIN_PAGE_ON()`)

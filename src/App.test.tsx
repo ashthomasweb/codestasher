@@ -1,4 +1,18 @@
-import React from 'react'
+/******************************************************************************
+* FILENAME:
+*   App.test.tsx
+
+* DESCRIPTION:
+*   Tests for the primary App component
+
+* NOTES:
+*   - 
+
+* (c) Copyright Ashley Thomas
+* Usage Rights: Not for public use or redistribution.
+
+******************************************************************************/
+
 import { render, screen } from '@testing-library/react'
 // import { act } from 'react-dom/test-utils'
 // import Header from './components/Header'
@@ -27,3 +41,5 @@ test('main header displays site title', () => {
 //   console.log(signUpButton)
 //   // expect(signUpButton).toBe('Codestasher')
 // })
+
+/* END of document ***********************************************************/

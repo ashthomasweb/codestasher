@@ -1,6 +1,6 @@
 /******************************************************************************
 * FILENAME:
-*   new.mjs
+*   primary-category.component.tsx
 
 * DESCRIPTION:
 *   
@@ -166,4 +166,4 @@ const PrimaryCategory = (props: any): JSX.Element => {
 
 export default PrimaryCategory
 
-// END of document
+/* END of document ***********************************************************/

@@ -13,22 +13,20 @@
 * Usage Rights: Not for public use or redistribution.
 
 ******************************************************************************/
-import React from 'react'
-import { useContext, useEffect, useRef, useState } from 'react'
+
+import { useContext, useRef, useState } from 'react'
 import { MainContext } from '../../context/main/MainState'
 import { GlobalContext } from '../../context/global/GlobalState'
 
-import { ToastContainer, toast } from 'react-toastify'
+import { ToastContainer } from 'react-toastify'
 // import cloneDeep from 'lodash.clonedeep'
 
 import {
   /* Assets */
   /* Database */
   /* Helper Function */
-
   /* Components */
   SignInUpModal,
-  UserDropMenu,
   /* Icons */
 } from '../../export-hub'
 
@@ -48,9 +46,9 @@ const Header = (props: any): JSX.Element => {
     state: { display },
     dispatch,
   } = useContext(MainContext)
+  
   const {
-    state: { userObj, globalDisplay },
-    globalDispatch,
+    state: { userObj },
   } = useContext(GlobalContext)
 
   const diagramTitle: any = useRef(null)

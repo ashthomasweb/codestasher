@@ -3,9 +3,7 @@
 *   ace-window.component.tsx
 
 * DESCRIPTION:
-*   This is an area to place a general description of the file. Please limit
-*   line length to less than 80. The header delimiter is 80 characters long.
-*   Place an asterisk in column 1 to continue blocked comments.
+*   
 
 * NOTES:
 *   - 
@@ -14,7 +12,7 @@
 
 ******************************************************************************/
 
-import React, { useContext, useEffect, useRef } from 'react'
+import { useContext, useEffect, useRef } from 'react'
 import { MainContext } from '../../context/main/MainState'
 
 import { 
@@ -114,6 +112,7 @@ const AceWindow = (props: any): JSX.Element => {
     Ace,
     props.codeContent,
     dispatch,
+    props.language,
     // props.fileData.associatedResourceId,
     // props.fileData.filename,
     // props.resourceFileNameId,

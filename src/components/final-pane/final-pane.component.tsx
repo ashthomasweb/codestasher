@@ -1,6 +1,6 @@
 /******************************************************************************
 * FILENAME:
-*   new.mjs
+*   final-pane.tsx
 
 * DESCRIPTION:
 *   
@@ -13,7 +13,7 @@
 
 ******************************************************************************/
 
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { MainContext } from '../../context/main/MainState'
 import { GlobalContext } from '../../context/global/GlobalState'
 
@@ -34,7 +34,10 @@ const FinalPane = (props: any): JSX.Element => {
     state: { display, workingObject },
     dispatch,
   } = useContext(MainContext)
-  const { state: {globalDragData }, globalDispatch } = useContext(GlobalContext)
+  const {
+    state: { globalDragData },
+    globalDispatch,
+  } = useContext(GlobalContext)
 
   const closePane = (e: any) => {
     dispatch({
@@ -52,11 +55,12 @@ const FinalPane = (props: any): JSX.Element => {
   const dragIdHandler = () => {
     globalDispatch({
       type: 'SET_DRAG_PANE',
-      payload: { currentDropPaneId: display.finalPaneEntryData.id,
-      chain: [...display.finalPaneEntryData.childOfChain] },
+      payload: {
+        currentDropPaneId: display.finalPaneEntryData.id,
+        chain: [...display.finalPaneEntryData.childOfChain],
+      },
     })
   }
-
 
   return (
     <div
@@ -73,28 +77,27 @@ const FinalPane = (props: any): JSX.Element => {
       {/* <h3>{display.finalPaneEntryData.id}</h3> */}
       <h3>{display.finalPaneEntryData.title}</h3>
       <p>{display.finalPaneEntryData.subtitle}</p>
-      {
-        workingObject?.entries[
-          indexFinder(workingObject.entries, display.currentSubEntryData.id)
-        ].entries[
-          indexFinder(
-            workingObject.entries[
-              indexFinder(workingObject.entries, display.currentSubEntryData.id)
-            ].entries,
-            display.finalPaneEntryData?.id
+      {workingObject?.entries[
+        indexFinder(workingObject.entries, display.currentSubEntryData.id)
+      ].entries[
+        indexFinder(
+          workingObject.entries[
+            indexFinder(workingObject.entries, display.currentSubEntryData.id)
+          ].entries,
+          display.finalPaneEntryData?.id
+        )
+      ]?.entries.map((entry: any, index: number) => {
+        if (entry.deletedAt === null) {
+          return (
+            <Entry
+              key={index}
+              data={entry}
+              parentChain={display.finalPaneEntryData.chain}
+              pane='final'
+            />
           )
-        ]?.entries.map((entry: any, index: number) => {
-          if (entry.deletedAt === null) {
-            return (
-              <Entry
-                key={index}
-                data={entry}
-                parentChain={display.finalPaneEntryData.chain}
-                pane='final'
-              />
-            )
-          } else return
-        })}
+        } else {return null}
+      })}
       <button onClick={closePane}>X</button>
       <button
         onClick={addItem}
