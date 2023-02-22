@@ -14,7 +14,7 @@
 An application for saving your re-useable code snippets in a nested tree data structure, with the ability to create multiple 'files' under each entry, and a simple drag and drop interface.
 
 ## Technologies
-* React 18
+* TS React 18
 * Firebase 9
 * SASS
 * Ace editor
