@@ -41,6 +41,6 @@ An application for saving your re-useable code snippets in a nested tree data s
 Project is: _in development_
 
 ## Contact
-Created by Ashley Thomas (https://www.ashthomascode.com/) - feel free to contact me!
+Created by Ashley Thomas - https://www.ashthomascode.com
 
 <!-- END of document -->
