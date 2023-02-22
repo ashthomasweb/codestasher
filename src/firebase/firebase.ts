@@ -1,6 +1,6 @@
 /******************************************************************************
 * FILENAME:
-*   firebase.js
+*   firebase.ts
 
 * DESCRIPTION:
 *   Primary database layer. All direct interaction with the firebase websocket
@@ -9,8 +9,7 @@
 * NOTES:
 *   - dispatch() is passed to several functions in this file, setting state
 *     directly from this layer.
-*   - Any change in the key/value structure of a UI boardObj must be reflected 
-*     in savePrimaryCategoryToDB().
+*   - 
 
 * Usage Rights: Not for public use or redistribution.
 

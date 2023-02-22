@@ -1,6 +1,6 @@
 /******************************************************************************
 * FILENAME:
-*   new.mjs
+*   subcategory-pane.component.tsx
 
 * DESCRIPTION:
 *   
@@ -8,12 +8,12 @@
 * NOTES:
 *   - 
 
-* (c) Copyright Kloudlog LLC
+* (c) Copyright Ashley Thomas
 * Usage Rights: Not for public use or redistribution.
 
 ******************************************************************************/
 
-import React, { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import { MainContext } from '../../context/main/MainState'
 import { GlobalContext } from '../../context/global/GlobalState'
 
@@ -21,7 +21,6 @@ import {
   /* Assets */
   /* Database */
   /* Helper Functions */
-  indexFinder,
   /* Components */
   Entry,
   /* Icons */
@@ -35,7 +34,7 @@ const SubcategoryPane = (props: any): JSX.Element => {
     dispatch,
   } = useContext(MainContext)
   const {
-    state: { globalDragData, subPaneEntry },
+    state: { globalDragData },
     globalDispatch,
   } = useContext(GlobalContext)
 
@@ -101,7 +100,7 @@ const SubcategoryPane = (props: any): JSX.Element => {
       {renderArray?.map((entry: any, index: number) => {
         if (entry.deletedAt === null) {
           return <Entry key={index} data={entry} parentChain={display.currentPrimaryEntryData.chain} pane='sub' />
-        } else return
+        } else {return null}
       })}
       <button onClick={closePane}>X</button>
       <button

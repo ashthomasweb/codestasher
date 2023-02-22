@@ -1,18 +1,31 @@
+/******************************************************************************
+* FILENAME:
+*   pane-container.styles.scss
+
+* DESCRIPTION:
+*   
+
+* NOTES:
+*   - 
+
+* (c) Copyright Ashley Thomas
+* Usage Rights: Not for public use or redistribution.
+
+******************************************************************************/
+
 .pane-container {
-    display: flex;
-    position: absolute;
-    width: 100%;
-    bottom: 0;
+  display: flex;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
 
-    .inner-wrapper {
-        position: relative;
+  .inner-wrapper {
+    position: relative;
 
-    
-        
-        button {
-            margin: 0;
-             bottom: 5px;
-             right: 5px;
+    button {
+      margin: 0;
+      bottom: 5px;
+      right: 5px;
       position: absolute;
       border-radius: 100%;
       height: 18px;
@@ -22,21 +35,23 @@
       background-color: grey;
       z-index: 4;
       zoom: 74%;
-      transition: height 0.1s ease-in-out, width 0.1s ease-in-out, color 0.1s ease-in-out;
-      
+      transition: height 0.1s ease-in-out, width 0.1s ease-in-out,
+        color 0.1s ease-in-out;
+
       color: black;
     }
-    
+
     button:hover {
       height: 24px;
       width: 24px;
-        border: none;
+      border: none;
       background-color: red;
-
     }
 
     button:focus {
-        outline: none!important;
+      outline: none !important;
     }
-    }
+  }
 }
+
+/* END of document ***********************************************************/

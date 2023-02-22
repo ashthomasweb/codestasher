@@ -10,7 +10,7 @@
 * NOTES:
 *   - 
 
-* (c) Copyright Kloudlog LLC
+* (c) Copyright Ashley Thomas
 * Usage Rights: Not for public use or redistribution.
 
 ******************************************************************************/
@@ -34,8 +34,7 @@ import {
 
 /**********************************************************
 This is a comment block describing 'Why?'. Please use no
-more than 60 character delimiters for this type, and 
-include an asterisk in column 1. */
+more than 60 character delimiters for this type */
 
 
 /* Examples of temporary comments */

@@ -1,11 +1,9 @@
 /******************************************************************************
 * FILENAME:
-*   header-comment-block.mjs
+*   sign-in-up.component.tsx
 
 * DESCRIPTION:
-*   This is an area to place a general description of the file. Please limit
-*   line length to less than 80. The header delimiter is 80 characters long.
-*   Place an asterisk in column 1 to continue blocked comments.
+*   
 
 * NOTES:
 *   - 
@@ -18,9 +16,6 @@
   width: 400px;
   display: inline-flex;
   flex-direction: column;
-  // outline: 200px solid white;
-
-
 
   span {
     text-align: center;
@@ -58,7 +53,6 @@
     height: 46px;
     color: white;
     border-radius: 12px;
-    // border: none;
     background-color: #1e1e1e;
     cursor: pointer;
     left: 50%;

@@ -1,6 +1,6 @@
 /******************************************************************************
 * FILENAME:
-*   new.mjs
+*   entry.component.tsx
 
 * DESCRIPTION:
 *   
@@ -391,4 +391,4 @@ const Entry = (props: any): JSX.Element => {
 
 export default Entry
 
-// END of document
+/* END of document ***********************************************************/

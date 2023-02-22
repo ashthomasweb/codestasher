@@ -1,6 +1,6 @@
 /******************************************************************************
 * FILENAME:
-*   new.mjs
+*   primary-category.component.tsx
 
 * DESCRIPTION:
 *   
@@ -8,7 +8,7 @@
 * NOTES:
 *   - 
 
-* (c) Copyright Kloudlog LLC
+* (c) Copyright Ashley Thomas
 * Usage Rights: Not for public use or redistribution.
 
 ******************************************************************************/
@@ -166,4 +166,4 @@ const PrimaryCategory = (props: any): JSX.Element => {
 
 export default PrimaryCategory
 
-// END of document
+/* END of document ***********************************************************/

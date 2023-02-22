@@ -1,5 +1,18 @@
+/******************************************************************************
+* FILENAME:
+*   entry.styles.scss
+
+* DESCRIPTION:
+*   
+
+* NOTES:
+*   - 
+
+* Usage Rights: Not for public use or redistribution.
+
+******************************************************************************/
+
 .entry-container {
-  // display: flex;
   position: relative;
   width: 270px;
   height: auto;
@@ -28,7 +41,6 @@
     transform: rotate(45deg) translateY(-50%);
     background-color: #4c4c84;
     top: 50%;
-    
   }
 
   .inner-wrapper {
@@ -48,7 +60,6 @@
       line-height: 1.3;
       font-weight: 600 !important;
       z-index: 3;
-
     }
     p {
       margin: 0 20px 0 0;
@@ -56,7 +67,6 @@
       font-style: italic;
       font-size: 13px;
       z-index: 3;
-
     }
 
     button {
@@ -75,12 +85,13 @@
     button:hover {
       height: 24px;
       width: 24px;
-        border: none;
-
+      border: none;
     }
 
     button:focus {
-        outline: none!important;
+      outline: none !important;
     }
   }
 }
+
+/* END of document ***********************************************************/
