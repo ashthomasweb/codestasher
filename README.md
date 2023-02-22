@@ -1,46 +1,46 @@
-# Getting Started with Create React App
+# Codestasher
+> Save your code, save your time.
+> View live at (https://codestasher.com).
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of contents
+* [General info](#general-info)
+* [Technologies](#technologies)
+* [Features](#features)
+* [Known Issues](#known-issues)
+* [Status](#status)
+* [Contact](#contact)
 
-## Available Scripts
+## General Info
+An application for saving your re-useable code snippets in a nested tree data structure, with the ability to create multiple 'files' under each entry, and a simple drag and drop interface.
 
-In the project directory, you can run:
+## Technologies
+* TS React 18
+* Firebase 9
+* SASS
+* Ace editor
 
-### `npm start`
+## Features
+* Save multiple 'files' under a single entry, different langagues for each 'file' supported
+* Language specific syntax highlighting
+* Dev-friendly dark-theme
+* Drag and drop your entries within a tree data structure
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Known Issues:
+* Large utility functions need to be broken into idempotent parts, particularly tree lookups and CRUD operations
+* Upon pasting code into new 'file' doesn't fire the components update onChange logic, additional keyboard action must be taken to save pasted code
+* Lack of code comments
+* Naming conventions of subpanes need to be clarified
+* Potentially componentize all subpanes into one 
+* Define remaining 'any' types
+* Highlighting issues when dragging entries
+* Codepane layout needs more space
+* Create basic UX guidance - tooltips, splash page greeting etc.
+* Need dropdown with populated language highlighting options, currently relies on proper user entry
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Status
+Project is: _in development_
 
-### `npm test`
+## Contact
+Created by Ashley Thomas - https://www.ashthomascode.com
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+<!-- END of document -->
