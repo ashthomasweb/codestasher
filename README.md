@@ -28,6 +28,7 @@ An application for saving your re-useable code snippets in a nested tree data s
 ## Known Issues:
 * Large utility functions need to be broken into idempotent parts, particularly tree lookups and CRUD operations
 * Upon pasting code into new 'file' doesn't fire the components update onChange logic, additional keyboard action must be taken to save pasted code
+* Lack of code comments
 * Naming conventions of subpanes need to be clarified
 * Potentially componentize all subpanes into one 
 * Define remaining 'any' types
