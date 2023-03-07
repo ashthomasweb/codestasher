@@ -3,7 +3,7 @@
 *   look-up-methods.ts
 
 * DESCRIPTION:
-*   Functions relating to looking up entries within a data structure
+*   Functions relating to looking up entries within various data structures
 
 * NOTES:
 *   - 
@@ -14,10 +14,10 @@
 ******************************************************************************/
 
 /**
- * Finds the index of a specfic object within an array
- * @param arrayObj The array literal to search
- * @param id The id of the object literal to find - must be in top level
- * @returns Number: The index of passed in id
+ * @function indexFinder Finds the index of a specfic object within an array
+ * @param {array} arrayObj The array literal to search
+ * @param {string | number | null} id The id of the object literal to find
+ * @returns {number} The index of passed in id
  */
 export const indexFinder = (
   arrayObj: any,
@@ -31,6 +31,17 @@ export const indexFinder = (
   return newIndex
 }
 
+/**
+ * @function treeSearchAndUpdateInPlace
+ * Updates passed in tree object according to passed in arguments
+ * @param treeObj Object to be updated
+ * @param id Id of object to be updated
+ * @param chain childOfChain of entry to be updated
+ * @param newEntryValues Object Literal containing key:value pairs of info to update
+ * @param toDelete Optional boolean to mark entry as deleted
+ * @param codePacket Optional packet containing new code data
+ * @returns {void}
+ */
 export const treeSearchAndUpdateInPlace = (
   treeObj: any,
   id: string | number | null,
@@ -38,7 +49,6 @@ export const treeSearchAndUpdateInPlace = (
   newEntryValues: any = null,
   toDelete: boolean = false,
   codePacket: any = null,
-  newEntry: any = null
 ): void => {
   // console.log(`Trace: treeSearchAndUpdateInPlace()`)
   console.log(chain)
@@ -63,15 +73,8 @@ export const treeSearchAndUpdateInPlace = (
     self.codePacket = codePacket
   }
 
-  //   function addEntryToPacket(self: any) {
-  //     // debugger
-  // console.log('test')
-  //     console.log(self)
-  //     self.entries.push(newEntry)
-  //   }
-
   let operation
-  if (toDelete && newEntry === null) {
+  if (toDelete) {
     operation = markDeleted
   } else if (codePacket !== null) {
     operation = updateCode
@@ -83,13 +86,11 @@ export const treeSearchAndUpdateInPlace = (
     // primary category [ no ID ]
     console.log('primary')
     let self = treeObj
-    // toDelete ? markDeleted(self) : updateFields(self, newEntryValues)
     operation(self)
   } else if (depth === 2) {
     // subcategory - [top-level working obj ID, ]
     console.log('sub')
     let self = treeObj.entries[indexFinder(treeObj.entries, id)]
-    // toDelete ? markDeleted(self) : updateFields(self, newEntryValues)
     operation(self)
   } else if (depth === 3) {
     // subsubcategory - [top-level working obj ID, subCategoryId,]
@@ -98,7 +99,6 @@ export const treeSearchAndUpdateInPlace = (
     let subEntries =
       primaryEntries[indexFinder(primaryEntries, chain[1])].entries
     let self = subEntries[indexFinder(subEntries, id)]
-    //  toDelete ? markDeleted(self) : updateFields(self, newEntryValues)
     operation(self)
   } else if (depth === 4) {
     // finalcategory - [top-level working obj ID, subCategoryId, subsubcotegoryID]
@@ -108,15 +108,20 @@ export const treeSearchAndUpdateInPlace = (
       primaryEntries[indexFinder(primaryEntries, chain[1])].entries
     let subsubEntries = subEntries[indexFinder(subEntries, chain[2])].entries
     let self = subsubEntries[indexFinder(subsubEntries, id)]
-    // toDelete ? markDeleted(self) : updateFields(self, newEntryValues)
     operation(self)
   }
   return treeObj
 }
 
-export const moveEntry = (dragData: any, workingObject: any, entry: any) => {
-  let destinationId = dragData.currentDropId || dragData.currentDropPaneId
-  let draggedEntryId = dragData.currentDraggingId
+/**
+ * @function moveEntry 
+ * Uses global drag data to set dragged entry to new destination in working tree
+ * @param {Object} dragData Packet containing global drag data from current user drag
+ * @param {Object} workingObject State object containing current tree (Primary Category)
+ * @param {Object} entry Currently dragged entry
+ * @returns {void}
+ */
+export const moveEntry = (dragData: any, workingObject: any, entry: any): void => {
   let chain =
     dragData.currentDropChain === null
       ? dragData.currentDropPaneChain
@@ -125,18 +130,25 @@ export const moveEntry = (dragData: any, workingObject: any, entry: any) => {
     dragData.currentDropPaneId === null
       ? dragData.currentDropId
       : dragData.currentDropPaneId
-  let pushEntry = findTreeEntry(workingObject, id, chain)
+  let pushEntry: any = findTreeEntry(workingObject, id, chain)
   pushEntry.entries.push(entry)
 }
 
+/**
+ * @function findTreeEntry
+ * Finds and returns entry from within passed tree object
+ * @param {} treeObj Tree object to search
+ * @param {} entryId Id of node to locate
+ * @param {} entryChain Id chain of node to locate
+ * @returns {Object} Returns entry at passed argument location
+ */
 export const findTreeEntry = (
   treeObj: any,
   entryId: any,
   entryChain: any[]
-) => {
-  let entry
+): any => {
+  let entry: any
   let depth = entryChain.length
-  // debugger
   if (entryChain[0] === undefined) {
     entry = treeObj
   } else if (depth === 1) {
@@ -154,6 +166,13 @@ export const findTreeEntry = (
   return entry
 }
 
+/**
+ * @function findTreeEntryParent
+ * Returns parent of passed in entry chain
+ * @param {Object} treeObj Tree object to search
+ * @param {Array} entryChain Node id chain of entry of which to find parent
+ * @returns {Object} Parent entry of passed in id chain
+ */
 export const findTreeEntryParent = (treeObj: any, entryChain: any[]) => {
   let parentEntry
   let depth = entryChain.length
@@ -172,6 +191,13 @@ export const findTreeEntryParent = (treeObj: any, entryChain: any[]) => {
   return parentEntry
 }
 
+/**
+ * @function removeEntryFromArray
+ * Removes node from parent
+ * @param {Object} entry Node to remove
+ * @param {Object} parentEntry Parent of node to remove
+ * @returns {void}
+ */
 export const removeEntryFromArray = (entry: any, parentEntry: any) => {
   return parentEntry.entries.filter((item: any) => item.id !== entry.id)
 }

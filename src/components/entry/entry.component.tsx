@@ -228,7 +228,7 @@ const Entry = (props: any): JSX.Element => {
     let parent = findTreeEntryParent(workingObject, props.data.childOfChain)
     let parentDepth = parent.childOfChain.length
     parent.entries = removeEntryFromArray(entry, parent)
-    entry.childOfChain = newChain // need recursive lookup for all children - fun/ouch
+    entry.childOfChain = newChain // need recursive lookup for all children
 
     entry.entries.forEach((nested1Entry: any) => {
       nested1Entry.childOfChain = [...entry.childOfChain, entry.id]
