@@ -176,13 +176,7 @@ const Entry = (props: any): JSX.Element => {
         setActiveBorder(false)
       }
     }
-  }, [
-    display.currentSubEntryData,
-    display.finalPaneEntryData?.id,
-    workingObject,
-    borderSwitch,
-    props.data.childOfChain,
-  ])
+  }, [display.currentSubEntryData, display.finalPaneEntryData?.id, workingObject, borderSwitch, props.data.childOfChain, props.pane, props.data.id, display.isSubSubcategoryPaneOpen, display.isFinalPaneOpen])
 
   const fireDropEvent = (e: any) => {
     if (
@@ -298,6 +292,7 @@ const Entry = (props: any): JSX.Element => {
     <div
       className='entry-container'
       id={props.data.id}
+      data-testid='entry'
       style={{
         outline: `${
           display.isCodePaneOpen && editorPacket?.id === props.data.id

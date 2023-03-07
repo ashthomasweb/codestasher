@@ -234,7 +234,7 @@ const AddPane = (props: any): JSX.Element => {
   }
 
   return (
-    <div className='add-pane-container'>
+    <div className='add-pane-container' data-testid='add-pane'>
       <h2 className='title'>{`Add ${
         display.isAddPrimary ? 'Primary ' : 'Sub-'
       }Category`}</h2>
