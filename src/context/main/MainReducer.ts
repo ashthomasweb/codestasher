@@ -6,7 +6,7 @@
 *   Primary reducer for React useContext Hook pattern.
 
 * NOTES:
-*   - 
+*   - Handles display and drag data
 
 * Usage Rights: Not for public use or redistribution.
 
@@ -47,7 +47,7 @@ export const MainReducer = (state: any, action: any) => {
       }
     }
 
-    case 'CREATE_PRIMARY': {
+    case 'CREATE_PRIMARY': {  // global
       // console.log(`Trace: CREATE_PRIMARY()`)
       let primaryCategories = [...state.primaryCategories]
       primaryCategories.push(action.payload.entry)
@@ -57,7 +57,7 @@ export const MainReducer = (state: any, action: any) => {
       }
     }
 
-    case 'SET_PRIMARY_CATEGORIES': {
+    case 'SET_PRIMARY_CATEGORIES': { // global
       let primaryCategories = [...action.payload.primaryCategories]
       return {
         ...state,
@@ -65,7 +65,7 @@ export const MainReducer = (state: any, action: any) => {
       }
     }
 
-    case 'SET_WORKING_OBJECT': {
+    case 'SET_WORKING_OBJECT': { // global
       let workingObject = action.payload.workingObject
       return {
         ...state,
@@ -176,8 +176,8 @@ export const MainReducer = (state: any, action: any) => {
       }
     }
 
-    case 'SET_CURRENT_SUB_ENTRY': {
-      // console.log(`Trace: SET_CURRENT_SUB_ENTRY()`)
+    case 'SET_CURRENT_SUB_ENTRY': {  // global
+      // console.log(`Trace: SET_CURRENT_SUB_ENTRY()`) 
       let display = {
         ...state.display,
         currentSubEntryData: action.payload.currentSubEntryData,
@@ -188,7 +188,7 @@ export const MainReducer = (state: any, action: any) => {
       }
     }
 
-    case 'SET_FINAL_ID': {
+    case 'SET_FINAL_ID': {  // global
       let display = {
         ...state.display,
         finalPaneEntryData: action.payload.finalPaneEntryData,
@@ -199,7 +199,7 @@ export const MainReducer = (state: any, action: any) => {
       }
     }
 
-    case 'SEND_ENTRY_TO_EDITOR': {
+    case 'SEND_ENTRY_TO_EDITOR': { // global
       let editorPacket = {
         ...action.payload.editorPacket,
       }
@@ -209,7 +209,7 @@ export const MainReducer = (state: any, action: any) => {
       }
     }
 
-    case 'SET_ACE': {
+    case 'SET_ACE': { // global
       // console.log(`Trace: SET_ACE()`)
       return {
         ...state,

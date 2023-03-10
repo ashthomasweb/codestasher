@@ -150,6 +150,7 @@ const PrimaryCategory = (props: any): JSX.Element => {
 
   return (
     <div
+      data-testid='primary-category'
       className='primary-category-container'
       style={{
         outline: `${activeBorder ? '2px solid #4c4c84' : 'inherit'}`,
