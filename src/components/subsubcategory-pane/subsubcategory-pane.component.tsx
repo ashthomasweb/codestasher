@@ -73,8 +73,8 @@ const SubSubcategoryPane = (props: any): JSX.Element => {
       style={{
         outline: `${
           display.currentSubEntryData.id === globalDragData.currentDropPaneId
-            ? '3px solid yellow'
-            : 'none'
+            ? '2px solid #EED202'
+            : '2px solid #0000'
         }`,
       }}>
       {/* <h3>{display.currentSubEntryData.id}</h3> */}
@@ -95,7 +95,9 @@ const SubSubcategoryPane = (props: any): JSX.Element => {
                 pane='subsub'
               />
             )
-          } else {return null }
+          } else {
+            return null
+          }
         })}
       <button onClick={closePane}>X</button>
       <button

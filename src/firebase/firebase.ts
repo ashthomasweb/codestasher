@@ -52,7 +52,7 @@ export const userInitializationHandler = async (
   isInitialModal = false
 ) => {
   if (!userAuth) return // prevent firing during lifecycle, before userAuth obj is obtained
-  console.log(`Trace: userInitializationHandler()`)
+  // console.log(`Trace: userInitializationHandler()`)
 
   let domain = userAuth.email
   domainBasedCollectionName = domain
@@ -114,7 +114,7 @@ const backwardCompat = (entryArray: any) => {
 }
 
 export const gatherUserPrimaryCategoriesFromDB = async (userAuth: any, dispatch: any) => {
-  console.log(`Trace: gatherUserPrimaryCategoriesFromDB()`)
+  // console.log(`Trace: gatherUserPrimaryCategoriesFromDB()`)
   if (!userAuth) return
   let primaryCategories: any = []
   let parsedArray: any[] = []
@@ -140,7 +140,7 @@ export const gatherUserPrimaryCategoriesFromDB = async (userAuth: any, dispatch:
 }
 
 export const gatherSinglePrimaryCategoryFromDB = async (userAuth: any, id: any) => {
-  console.log(`Trace: gatherSinglePrimaryCategoryFromDB()`)
+  // console.log(`Trace: gatherSinglePrimaryCategoryFromDB()`)
   if (!userAuth) return
   let workingObject: any
   const userCategoryFirestoreRef = await collection(

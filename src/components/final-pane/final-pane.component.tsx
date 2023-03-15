@@ -70,8 +70,8 @@ const FinalPane = (props: any): JSX.Element => {
       style={{
         outline: `${
           display.finalPaneEntryData.id === globalDragData.currentDropPaneId
-            ? '3px solid yellow'
-            : 'none'
+            ? '2px solid #EED202'
+            : '2px solid #0000'
         }`,
       }}>
       {/* <h3>{display.finalPaneEntryData.id}</h3> */}
@@ -96,7 +96,9 @@ const FinalPane = (props: any): JSX.Element => {
               pane='final'
             />
           )
-        } else {return null}
+        } else {
+          return null
+        }
       })}
       <button onClick={closePane}>X</button>
       <button
