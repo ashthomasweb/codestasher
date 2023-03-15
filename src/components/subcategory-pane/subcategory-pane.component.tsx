@@ -88,9 +88,10 @@ const SubcategoryPane = (props: any): JSX.Element => {
       onDragOver={dragIdHandler}
       style={{
         outline: `${
-          display.currentPrimaryEntryData.id === globalDragData.currentDropPaneId
-            ? '3px solid yellow'
-            : 'none'
+          display.currentPrimaryEntryData.id ===
+          globalDragData.currentDropPaneId
+            ? '2px solid #EED202'
+            : '2px solid #0000'
         }`,
       }}>
       {/* <h6>{display.currentPrimaryEntryData.id}</h6> */}
@@ -99,8 +100,17 @@ const SubcategoryPane = (props: any): JSX.Element => {
 
       {renderArray?.map((entry: any, index: number) => {
         if (entry.deletedAt === null) {
-          return <Entry key={index} data={entry} parentChain={display.currentPrimaryEntryData.chain} pane='sub' />
-        } else {return null}
+          return (
+            <Entry
+              key={index}
+              data={entry}
+              parentChain={display.currentPrimaryEntryData.chain}
+              pane='sub'
+            />
+          )
+        } else {
+          return null
+        }
       })}
       <button onClick={closePane}>X</button>
       <button

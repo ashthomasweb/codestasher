@@ -52,6 +52,7 @@ const Entry = (props: any): JSX.Element => {
 
   const deleteSubcategory = async (e: any) => {
     e.preventDefault()
+    e.stopPropagation()
     if (window.confirm('Are you sure you want to mark as deleted?')) {
       let newWorkingObject = treeSearchAndUpdateInPlace(
         workingObject,
@@ -71,6 +72,9 @@ const Entry = (props: any): JSX.Element => {
       if (props.pane === 'sub') {
         dispatch({
           type: 'CLOSE_SUBSUBCAT_PANE',
+        })
+        dispatch({
+          type: 'CLOSE_FINAL_PANE',
         })
       }
     }
@@ -191,6 +195,21 @@ const Entry = (props: any): JSX.Element => {
     ) {
       return
     }
+    if (
+      globalDragData.currentDropId ===
+      props.data.childOfChain[props.data.childOfChain.length - 1]
+    ) {
+      globalDispatch({
+        type: 'SET_DRAG_ID',
+        payload: {
+          currentDropId: null,
+          chain: [],
+          parentChain: null,
+        },
+      })
+      return
+    }
+
     let entry = findTreeEntry(
       workingObject,
       props.data.id,
@@ -266,6 +285,14 @@ const Entry = (props: any): JSX.Element => {
       payload: { workingObject: workingObject },
     })
     savePrimaryCategoryToDB(workingObject)
+    globalDispatch({
+      type: 'SET_DRAG_ID',
+      payload: {
+        currentDropId: null,
+        chain: [],
+        parentChain: null,
+      },
+    })
   }
 
   const dragIdHandler = (e: any) => {
@@ -315,7 +342,7 @@ const Entry = (props: any): JSX.Element => {
         style={{
           borderTop: `${
             props.data.id === globalDragData.currentDropId
-              ? '4px solid yellow'
+              ? '4px solid #EED202'
               : props.data.codePacket.length === 0 &&
                 props.data.entries.length === 0
               ? 'none'
@@ -329,7 +356,7 @@ const Entry = (props: any): JSX.Element => {
           }`,
           borderRight: `${
             props.data.id === globalDragData.currentDropId
-              ? '4px solid yellow'
+              ? '4px solid #EED202'
               : props.data.codePacket.length === 0 &&
                 props.data.entries.length === 0
               ? 'none'

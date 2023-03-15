@@ -51,7 +51,6 @@ export const treeSearchAndUpdateInPlace = (
   codePacket: any = null
 ): void => {
   // console.log(`Trace: treeSearchAndUpdateInPlace()`)
-  console.log(chain)
 
   let depth: number
   if (chain === undefined) {

@@ -92,7 +92,7 @@ const CodePane = (props: any): JSX.Element => {
   }
 
   const saveFileParams = async (e: any, id: number) => {
-    console.log(e.target.previousSibling.previousSibling.previousSibling)
+    // console.log(e.target.previousSibling.previousSibling.previousSibling)
     let languageField = e.target.previousSibling.previousSibling.previousSibling
     let titleField =
       e.target.previousSibling.previousSibling.previousSibling.previousSibling

@@ -23,8 +23,7 @@
   display: inline-block;
   background-color: #1e1e1e;
   user-select: none;
-  transition: outline 0.2s ease-in-out;
-  transition-delay: 0.4s;
+  transition: outline 0.2s cubic-bezier( 0, 0.25, 0.97, -0.1 ) ;
 
   h3 {
     margin: 0;
