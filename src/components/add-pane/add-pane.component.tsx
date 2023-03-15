@@ -234,7 +234,7 @@ const AddPane = (props: any): JSX.Element => {
   }
 
   return (
-    <div className='add-pane-container'>
+    <div className='add-pane-container' data-testid='add-pane'>
       <h2 className='title'>{`Add ${
         display.isAddPrimary ? 'Primary ' : 'Sub-'
       }Category`}</h2>
@@ -252,12 +252,14 @@ const AddPane = (props: any): JSX.Element => {
         </span>
       )}
       <textarea
+        data-testid='add-primary-input'
         ref={primaryRef}
         defaultValue={`${display.isEdit ? display.editTitle : ''}`}
         style={{ color: `${lengthAlert ? 'red' : 'white'}` }}
         onInput={lengthListener}></textarea>
       <span>Sub-Title</span>
       <textarea
+        data-testid='add-secondary-input'
         ref={subtitleRef}
         defaultValue={`${
           display.isEdit ? display.editSubtitle : ''
@@ -277,10 +279,18 @@ const AddPane = (props: any): JSX.Element => {
         <button onClick={createFinalEntry}>Create Final</button>
       )}
 
-      {display.isEdit && display.category === 'primary' && <button onClick={editPrimaryCat}>editP</button>}
-      {display.isEdit && display.category === 'sub' && <button onClick={editSubcat}>editsub</button>}
-      {display.isEdit && display.category === 'subsub' && <button onClick={editSubSubcat}>editsubsub</button>}
-      {display.isEdit && display.category === 'final' && <button onClick={editSubSubcat}>editFinal</button>}
+      {display.isEdit && display.category === 'primary' && (
+        <button onClick={editPrimaryCat}>editP</button>
+      )}
+      {display.isEdit && display.category === 'sub' && (
+        <button onClick={editSubcat}>editsub</button>
+      )}
+      {display.isEdit && display.category === 'subsub' && (
+        <button onClick={editSubSubcat}>editsubsub</button>
+      )}
+      {display.isEdit && display.category === 'final' && (
+        <button onClick={editSubSubcat}>editFinal</button>
+      )}
     </div>
   )
 }

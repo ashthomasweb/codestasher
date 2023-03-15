@@ -176,13 +176,7 @@ const Entry = (props: any): JSX.Element => {
         setActiveBorder(false)
       }
     }
-  }, [
-    display.currentSubEntryData,
-    display.finalPaneEntryData?.id,
-    workingObject,
-    borderSwitch,
-    props.data.childOfChain,
-  ])
+  }, [display.currentSubEntryData, display.finalPaneEntryData?.id, workingObject, borderSwitch, props.data.childOfChain, props.pane, props.data.id, display.isSubSubcategoryPaneOpen, display.isFinalPaneOpen])
 
   const fireDropEvent = (e: any) => {
     if (
@@ -234,7 +228,7 @@ const Entry = (props: any): JSX.Element => {
     let parent = findTreeEntryParent(workingObject, props.data.childOfChain)
     let parentDepth = parent.childOfChain.length
     parent.entries = removeEntryFromArray(entry, parent)
-    entry.childOfChain = newChain // need recursive lookup for all children - fun/ouch
+    entry.childOfChain = newChain // need recursive lookup for all children
 
     entry.entries.forEach((nested1Entry: any) => {
       nested1Entry.childOfChain = [...entry.childOfChain, entry.id]
@@ -298,6 +292,7 @@ const Entry = (props: any): JSX.Element => {
     <div
       className='entry-container'
       id={props.data.id}
+      data-testid='entry'
       style={{
         outline: `${
           display.isCodePaneOpen && editorPacket?.id === props.data.id

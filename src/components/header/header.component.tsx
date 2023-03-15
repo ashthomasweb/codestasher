@@ -161,7 +161,9 @@ const Header = (props: any): JSX.Element => {
     <div
       className='header'
       style={{ height: `${display.headerHeight}px` }}
-      ref={headerRef}>
+      ref={headerRef}
+      data-testid='header'
+      >
       <div className='title-control-wrapper'>
         <h1
          data-testid='animated-header'
