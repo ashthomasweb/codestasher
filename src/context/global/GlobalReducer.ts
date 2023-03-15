@@ -25,7 +25,7 @@ export const GlobalReducer = (state: any, action: any) => {
 
   switch (action.type) {
     case 'SET_CURRENT_USER_TO_STATE': {
-      // console.log(`Trace: SET_CURRENT_USER_TO_STATE()`)
+      console.log(`Trace: SET_CURRENT_USER_TO_STATE()`)
       let data = action.payload.userObj
       let userObj = data
       return {
@@ -35,7 +35,7 @@ export const GlobalReducer = (state: any, action: any) => {
     }
 
     case 'SIGN_USER_OUT': {
-      // console.log(`Trace: SIGN_USER_OUT()`)
+      console.log(`Trace: SIGN_USER_OUT()`)
       let userObj = null
       return {
         ...state,
@@ -45,7 +45,7 @@ export const GlobalReducer = (state: any, action: any) => {
 
 
     case 'ADMIN_PAGE_ON': {
-      // console.log(`Trace: ADMIN_PAGE_ON()`)
+      console.log(`Trace: ADMIN_PAGE_ON()`)
       let globalDisplay = {
         ...state.globalDisplay,
         isBoardPage: false,
@@ -59,7 +59,7 @@ export const GlobalReducer = (state: any, action: any) => {
     }
 
     case 'WELCOME_PAGE_ON': {
-      // console.log(`Trace: WELCOME_PAGE_ON()`)
+      console.log(`Trace: WELCOME_PAGE_ON()`)
       let globalDisplay = {
         ...state.globalDisplay,
         isBoardPage: false,
@@ -73,7 +73,7 @@ export const GlobalReducer = (state: any, action: any) => {
     }
 
     case 'BOARD_PAGE_ON': {
-      // console.log(`Trace: BOARD_PAGE_ON()`)
+      console.log(`Trace: BOARD_PAGE_ON()`)
       let globalDisplay = {
         ...state.globalDisplay,
         isBoardPage: true,
@@ -87,7 +87,7 @@ export const GlobalReducer = (state: any, action: any) => {
     }
 
     case 'SET_DRAG_ID': {
-      // console.log(`Trace: SET_DRAG_ID()`)
+      console.log(`Trace: SET_DRAG_ID()`)
       let globalDragData = {
         ...state.globalDragData,
         currentDropPaneId: null,
@@ -103,7 +103,7 @@ export const GlobalReducer = (state: any, action: any) => {
     }
 
     case 'SET_DRAGGING_ID': {
-      // console.log(`Trace: SET_DRAGGING_ID()`)
+      console.log(`Trace: SET_DRAGGING_ID()`)
       let globalDragData = {
         ...state.globalDragData,
         currentDraggingId: action.payload.currentDraggingId,
@@ -116,7 +116,7 @@ export const GlobalReducer = (state: any, action: any) => {
     }
 
     case 'SET_DRAG_PANE': {
-      // console.log(`Trace: SET_DRAG_PANE()`)
+      console.log(`Trace: SET_DRAG_PANE()`)
       let globalDragData = {
         ...state.globalDragData,
         currentDropPaneId: action.payload.currentDropPaneId,
@@ -132,7 +132,7 @@ export const GlobalReducer = (state: any, action: any) => {
     }
 
     case 'SET_SUBSUB_ENTRY': {
-      // console.log(`Trace: SET_SUBSUB_ENTRY()`)
+      console.log(`Trace: SET_SUBSUB_ENTRY()`)
       let subSubEntry = action.payload.subSubEntry
       return {
         ...state,
@@ -141,7 +141,7 @@ export const GlobalReducer = (state: any, action: any) => {
     }
 
     case 'SET_SUB_ENTRY': {
-      // console.log(`Trace: SET_SUB_ENTRY()`)
+      console.log(`Trace: SET_SUB_ENTRY()`)
       let subEntry = action.payload.subEntry
       return {
         ...state,

@@ -16,7 +16,7 @@ export const MainReducer = (state: any, action: any) => {
 
   switch (action.type) {
     case 'TOG_USER_DROP_DOWN': {
-      // console.log(`Trace: TOG_USER_DROP_DOWN()`)
+      console.log(`Trace: TOG_USER_DROP_DOWN()`)
       let display = {
         ...state.display,
         isUserDropDown: !state.display.isUserDropDown,
@@ -28,7 +28,7 @@ export const MainReducer = (state: any, action: any) => {
     }
 
     case 'TOG_ADD_PANE': {
-      // console.log(`Trace: TOG_ADD_PANE()`)
+      console.log(`Trace: TOG_ADD_PANE()`)
       let display = {
         ...state.display,
         isAddPane: !state.display.isAddPane,
@@ -48,7 +48,7 @@ export const MainReducer = (state: any, action: any) => {
     }
 
     case 'CREATE_PRIMARY': {  // global
-      // console.log(`Trace: CREATE_PRIMARY()`)
+      console.log(`Trace: CREATE_PRIMARY()`)
       let primaryCategories = [...state.primaryCategories]
       primaryCategories.push(action.payload.entry)
       return {
@@ -177,7 +177,7 @@ export const MainReducer = (state: any, action: any) => {
     }
 
     case 'SET_CURRENT_SUB_ENTRY': {  // global
-      // console.log(`Trace: SET_CURRENT_SUB_ENTRY()`) 
+      console.log(`Trace: SET_CURRENT_SUB_ENTRY()`) 
       let display = {
         ...state.display,
         currentSubEntryData: action.payload.currentSubEntryData,
@@ -210,7 +210,7 @@ export const MainReducer = (state: any, action: any) => {
     }
 
     case 'SET_ACE': { // global
-      // console.log(`Trace: SET_ACE()`)
+      console.log(`Trace: SET_ACE()`)
       return {
         ...state,
         aceObj: action.payload.aceObj,

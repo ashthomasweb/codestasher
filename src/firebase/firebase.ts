@@ -52,7 +52,7 @@ export const userInitializationHandler = async (
   isInitialModal = false
 ) => {
   if (!userAuth) return // prevent firing during lifecycle, before userAuth obj is obtained
-  // console.log(`Trace: userInitializationHandler()`)
+  console.log(`Trace: userInitializationHandler()`)
 
   let domain = userAuth.email
   domainBasedCollectionName = domain
@@ -114,7 +114,7 @@ const backwardCompat = (entryArray: any) => {
 }
 
 export const gatherUserPrimaryCategoriesFromDB = async (userAuth: any, dispatch: any) => {
-  // console.log(`Trace: gatherUserPrimaryCategoriesFromDB()`)
+  console.log(`Trace: gatherUserPrimaryCategoriesFromDB()`)
   if (!userAuth) return
   let primaryCategories: any = []
   let parsedArray: any[] = []
@@ -140,7 +140,7 @@ export const gatherUserPrimaryCategoriesFromDB = async (userAuth: any, dispatch:
 }
 
 export const gatherSinglePrimaryCategoryFromDB = async (userAuth: any, id: any) => {
-  // console.log(`Trace: gatherSinglePrimaryCategoryFromDB()`)
+  console.log(`Trace: gatherSinglePrimaryCategoryFromDB()`)
   if (!userAuth) return
   let workingObject: any
   const userCategoryFirestoreRef = await collection(
@@ -238,161 +238,5 @@ export const authListener = (
     }
   })
 }
-
-// export const deleteUserBoard = async (userAuth, boardName) => {
-//   const boardFireStoreRef = doc(
-//     db,
-//     domainBasedCollectionName,
-//     'companyData',
-//     'boards',
-//     boardName
-//   )
-//   const boardSnapShot = await getDoc(boardFireStoreRef)
-
-//   if (boardSnapShot.exists()) {
-//     try {
-//       await deleteDoc(boardFireStoreRef)
-//       toast('Board deleted')
-//     } catch (error) {
-//       console.log('error deleting board', error.message)
-//       toast('Error deleting board')
-//     }
-//   }
-// }
-
-// export const saveChangelogToDB = async (userAuth, changelogObj, dispatch) => {
-//   if (changelogObj.name === '') return
-
-//   const {
-//     boardObject,
-//     boardName,
-//     changelogMsg,
-//     isApplied,
-//     createdAt,
-//     createdByUser,
-//     lastEdited,
-//     lastEditedByUser,
-//     codeFileArray,
-//     isPlanRun,
-//     isPlanRunSuccess,
-//     isPlanInitiated,
-//     isReviewRequested,
-//     reviewMessage,
-//     requestedBy,
-//     isApproved
-//   } = changelogObj
-
-//   const changelogFireStoreRef = doc(
-//     db,
-//     domainBasedCollectionName,
-//     'companyData',
-//     `versions`,
-//     `${changelogObj.boardName}`,
-//     `${changelogObj.isApplied ? 'applied' : 'changelog'}`,
-//     `${changelogObj.lastEdited}`
-//   )
-//   const changelogSnapShot = await getDoc(changelogFireStoreRef)
-
-//   if (!changelogSnapShot.exists()) {
-//     let changelog = {
-//       boardObject,
-//       boardName,
-//       changelogMsg,
-//       isApplied,
-//       createdAt,
-//       createdByUser,
-//       lastEdited,
-//       lastEditedByUser,
-//       codeFileArray,
-//       isPlanRun,
-//       isPlanRunSuccess,
-//       isPlanInitiated,
-//       isReviewRequested,
-//       reviewMessage,
-//       requestedBy,
-//       isApproved
-//     }
-//     try {
-//       await setDoc(changelogFireStoreRef, changelog)
-//       toast('New changelog Saved Successfully!')
-//       dispatch({
-//         type: 'SAVE_MODAL_OFF',
-//       })
-//     } catch (error) {
-//       console.log('error creating changelog', error.message)
-//       toast('error creating changelog')
-//     }
-//   } else if (changelogSnapShot.exists()) {
-//     let changelog = {
-//       boardObject,
-//       boardName,
-//       changelogMsg,
-//       isApplied,
-//       createdAt,
-//       createdByUser,
-//       lastEdited,
-//       lastEditedByUser,
-//       codeFileArray,
-//       isPlanRun,
-//       isPlanRunSuccess,
-//       isPlanInitiated,
-//       isReviewRequested,
-//       reviewMessage,
-//       requestedBy,
-//       isApproved
-//     }
-//     try {
-//       await setDoc(changelogFireStoreRef, changelog, { merge: true })
-//       toast('changelog Saved Successfully!')
-//     } catch (error) {
-//       console.log('error creating board', error.message)
-//       toast('error creating changelog')
-//     }
-//   }
-//   await gatherChangelogFromDB(userAuth, dispatch, boardName)
-// }
-
-// export const gatherChangelogFromDB = async (userAuth, dispatch, boardName) => {
-//   if (!userAuth) return
-// //   console.log('gather init')
-
-//   let domain = userAuth.email
-//   let symbolDividerIndex = domain.indexOf('@')
-//   domainBasedCollectionName = domain.substring(symbolDividerIndex + 1)
-
-//   let changelogArray = []
-//   const changelogFirestoreRef = await collection(
-//     db,
-//     domainBasedCollectionName,
-//     'companyData',
-//     'versions',
-//     `${boardName}`,
-//     `changelog`
-//   )
-//   const mainFirestoreRef = await collection(
-//     db,
-//     domainBasedCollectionName,
-//     'companyData',
-//     'versions',
-//     `${boardName}`,
-//     `applied`
-//   )
-
-//   const changelogQuery = query(changelogFirestoreRef)
-//   const changelogSnapshot = await getDocs(changelogQuery)
-//   const mainQuery = query(mainFirestoreRef)
-//   const mainSnapshot = await getDocs(mainQuery)
-
-//   await changelogSnapshot.forEach((doc) => {
-//     changelogArray.push(doc.data())
-//   })
-//   await mainSnapshot.forEach((doc) => {
-//     changelogArray.push(doc.data())
-//   })
-//   await dispatch({
-//     type: 'SET_CHANGELOG',
-//     payload: { changelogArray: changelogArray },
-//   })
-// }
 
 /* END of document ***********************************************************/

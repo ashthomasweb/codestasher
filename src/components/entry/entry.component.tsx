@@ -52,6 +52,7 @@ const Entry = (props: any): JSX.Element => {
 
   const deleteSubcategory = async (e: any) => {
     e.preventDefault()
+    e.stopPropagation()
     if (window.confirm('Are you sure you want to mark as deleted?')) {
       let newWorkingObject = treeSearchAndUpdateInPlace(
         workingObject,
@@ -71,6 +72,9 @@ const Entry = (props: any): JSX.Element => {
       if (props.pane === 'sub') {
         dispatch({
           type: 'CLOSE_SUBSUBCAT_PANE',
+        })
+        dispatch({
+          type: 'CLOSE_FINAL_PANE',
         })
       }
     }

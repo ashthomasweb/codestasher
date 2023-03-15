@@ -339,7 +339,7 @@ export const guestData = {
                             "codePacket": [
                                 {
                                     "language": "javascript",
-                                    "content": "// normalizes string and number types \r\nexport const indexFinder = (parentArray: any[], objUID: string | number | null) : number => {\r\n    // console.log(`Trace: indexFinder()`)\r\n    let childIndex: number\r\n    parentArray.forEach((objItem) => {\r\n        Number(objItem.id) === Number(objUID) && (childIndex = parentArray.indexOf(objItem))\r\n    })\r\n    return childIndex\r\n}\r\n",
+                                    "content": "// normalizes string and number types \r\nexport const indexFinder = (parentArray: any[], objUID: string | number | null) : number => {\r\n    console.log(`Trace: indexFinder()`)\r\n    let childIndex: number\r\n    parentArray.forEach((objItem) => {\r\n        Number(objItem.id) === Number(objUID) && (childIndex = parentArray.indexOf(objItem))\r\n    })\r\n    return childIndex\r\n}\r\n",
                                     "title": "code.js",
                                     "id": 3646006997880260000
                                 },
