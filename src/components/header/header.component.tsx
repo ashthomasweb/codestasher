@@ -116,7 +116,6 @@ const Header = (props: any): JSX.Element => {
       let prefix = charArray[index].current.style
       prefix.color = 'white'
       prefix.webkitTextStroke = '0'
-
     }
     
     function resetAnimationAtIndex(index) {
@@ -129,7 +128,7 @@ const Header = (props: any): JSX.Element => {
       charArray[index].current.style.webkitTextStroke = '0'
       }, 400)
       setTimeout(() => {
-        charArray[index].current.style.webkitTextStroke = '3px yellow'
+        charArray[index].current.style.webkitTextStroke = '3px #EED202'
       }, 800)
        setTimeout(() => {
          charArray[index].current.style.webkitTextStroke = '0'
