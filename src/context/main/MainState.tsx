@@ -27,12 +27,8 @@ import {
 /** INITIAL TYPE DECLARATION ***************************************/
 
 interface initialStateType {
-  userObj: any
   display: any
-  // primaryCategories: any[]
   workingObject: any
-  editorPacket: any
-  aceObj: any
 }
 
 // interface entryType {
@@ -53,7 +49,6 @@ interface initialStateType {
 /** INITIAL STATE DECLARATION **************************************/
 
 const initialState = {
-  userObj: null,
   display: {
     isAddPane: false,
     isUserDropDown: false,
@@ -65,10 +60,7 @@ const initialState = {
     subheaderHeight: 89,
     isCodePaneOpen: false,
   },
-  // primaryCategories: [],
   workingObject: {},
-  editorPacket: {},
-  aceObj: null,
 }
 
 export const MainContext = createContext<{

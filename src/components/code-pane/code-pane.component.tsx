@@ -34,11 +34,11 @@ import AceWindow from '../ace-window/ace-window.component'
 
 const CodePane = (props: any): JSX.Element => {
   const {
-    state: { editorPacket, workingObject },
+    state: { workingObject },
     dispatch,
   } = useContext(MainContext)
   const {
-    state: { userObj },
+    state: { userObj, editorPacket },
     globalDispatch,
   } = useContext(GlobalContext)
 
@@ -67,7 +67,7 @@ const CodePane = (props: any): JSX.Element => {
     }
 
     editorPacket.codePacket.push(obj)
-    dispatch({
+    globalDispatch({
       type: 'SEND_ENTRY_TO_EDITOR',
       payload: { editorPacket: editorPacket },
     })
@@ -116,7 +116,7 @@ const CodePane = (props: any): JSX.Element => {
   const deleteFile = async (id: number) => {
     editorPacket.codePacket = editorPacket.codePacket.filter((item) => item.id !== id)
 
-    dispatch({
+    globalDispatch({
       type: 'SEND_ENTRY_TO_EDITOR',
       payload: { editorPacket: editorPacket },
     })
