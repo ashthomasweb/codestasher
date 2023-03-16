@@ -63,7 +63,7 @@ const Entry = (props: any): JSX.Element => {
       )
 
       await savePrimaryCategoryToDB(newWorkingObject)
-      gatherUserPrimaryCategoriesFromDB(userObj.auth, dispatch)
+      gatherUserPrimaryCategoriesFromDB(userObj.auth, globalDispatch)
       if (props.pane === 'subsub') {
         dispatch({
           type: 'CLOSE_FINAL_PANE',

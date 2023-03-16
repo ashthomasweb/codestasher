@@ -93,7 +93,7 @@ export const userInitializationHandler = async (
         type: 'SET_CURRENT_USER_TO_STATE',
         payload: { userObj: userObjFromDB },
       })
-      gatherUserPrimaryCategoriesFromDB(userAuth, dispatch)
+      gatherUserPrimaryCategoriesFromDB(userAuth, globalDispatch)
       toast('User logged in')
     }
   })
@@ -113,7 +113,10 @@ const backwardCompat = (entryArray: any) => {
   return array
 }
 
-export const gatherUserPrimaryCategoriesFromDB = async (userAuth: any, dispatch: any) => {
+export const gatherUserPrimaryCategoriesFromDB = async (
+  userAuth: any,
+  globalDispatch: any
+) => {
   // console.log(`Trace: gatherUserPrimaryCategoriesFromDB()`)
   if (!userAuth) return
   let primaryCategories: any = []
@@ -133,7 +136,7 @@ export const gatherUserPrimaryCategoriesFromDB = async (userAuth: any, dispatch:
   compatibileArray.forEach((doc) => {
     doc.deletedAt === null && parsedArray.push(doc)
   })
-  dispatch({
+  globalDispatch({
     type: 'SET_PRIMARY_CATEGORIES',
     payload: { primaryCategories: parsedArray },
   })

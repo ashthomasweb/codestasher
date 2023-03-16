@@ -47,24 +47,6 @@ export const MainReducer = (state: any, action: any) => {
       }
     }
 
-    case 'CREATE_PRIMARY': {  // global
-      // console.log(`Trace: CREATE_PRIMARY()`)
-      let primaryCategories = [...state.primaryCategories]
-      primaryCategories.push(action.payload.entry)
-      return {
-        ...state,
-        primaryCategories: primaryCategories,
-      }
-    }
-
-    case 'SET_PRIMARY_CATEGORIES': { // global
-      let primaryCategories = [...action.payload.primaryCategories]
-      return {
-        ...state,
-        primaryCategories: primaryCategories,
-      }
-    }
-
     case 'SET_WORKING_OBJECT': { // global
       let workingObject = action.payload.workingObject
       return {

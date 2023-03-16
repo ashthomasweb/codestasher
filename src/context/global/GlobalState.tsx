@@ -43,6 +43,7 @@ interface initialStateType {
   }
   subSubPaneEntry: any
   subPaneEntry: any
+  primaryCategories: any[]
 }
 
 /** INITIAL STATE DECLARATION **************************************/
@@ -64,6 +65,7 @@ const initialState = {
   },
   subSubPaneEntry: {},
   subPaneEntry: {},
+  primaryCategories: [],
 }
 
 export const GlobalContext = createContext<{

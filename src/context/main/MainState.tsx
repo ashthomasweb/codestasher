@@ -29,7 +29,7 @@ import {
 interface initialStateType {
   userObj: any
   display: any
-  primaryCategories: any[]
+  // primaryCategories: any[]
   workingObject: any
   editorPacket: any
   aceObj: any
@@ -65,7 +65,7 @@ const initialState = {
     subheaderHeight: 89,
     isCodePaneOpen: false,
   },
-  primaryCategories: [],
+  // primaryCategories: [],
   workingObject: {},
   editorPacket: {},
   aceObj: null,

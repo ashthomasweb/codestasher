@@ -83,7 +83,7 @@ const CodePane = (props: any): JSX.Element => {
       editorPacket.codePacket
     )
     await savePrimaryCategoryToDB(newWorkingObject)
-    gatherUserPrimaryCategoriesFromDB(userObj.auth, dispatch)
+    gatherUserPrimaryCategoriesFromDB(userObj.auth, globalDispatch)
   }
 
   const editFileParams = (index: number) => {
@@ -109,7 +109,7 @@ const CodePane = (props: any): JSX.Element => {
       editorPacket.codePacket
     )
     await savePrimaryCategoryToDB(newWorkingObject)
-    gatherUserPrimaryCategoriesFromDB(userObj.auth, dispatch)
+    gatherUserPrimaryCategoriesFromDB(userObj.auth, globalDispatch)
     setAllowEdit(false)
   }
 
@@ -129,7 +129,7 @@ const CodePane = (props: any): JSX.Element => {
       editorPacket.codePacket
     )
     await savePrimaryCategoryToDB(newWorkingObject)
-    gatherUserPrimaryCategoriesFromDB(userObj.auth, dispatch)
+    gatherUserPrimaryCategoriesFromDB(userObj.auth, globalDispatch)
     setAllowEdit(false)
   }
 

@@ -88,7 +88,7 @@ const PrimaryCategory = (props: any): JSX.Element => {
           deletedAt: new Date().getTime(),
         }
         await savePrimaryCategoryToDB(dataPacket)
-        gatherUserPrimaryCategoriesFromDB(userObj.auth, dispatch)
+        gatherUserPrimaryCategoriesFromDB(userObj.auth, globalDispatch)
       }
     }
   }

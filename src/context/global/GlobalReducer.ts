@@ -43,7 +43,6 @@ export const GlobalReducer = (state: any, action: any) => {
       }
     }
 
-
     case 'ADMIN_PAGE_ON': {
       // console.log(`Trace: ADMIN_PAGE_ON()`)
       let globalDisplay = {
@@ -93,7 +92,7 @@ export const GlobalReducer = (state: any, action: any) => {
         currentDropPaneId: null,
         currentDropId: action.payload.currentDropId,
         currentDropChain: [...action.payload.chain],
-        currentDropPaneChain: null
+        currentDropPaneChain: null,
       }
       // console.log(action.payload.currentDropId)
       return {
@@ -122,7 +121,7 @@ export const GlobalReducer = (state: any, action: any) => {
         currentDropPaneId: action.payload.currentDropPaneId,
         currentDropId: null,
         currentDropPaneChain: [...action.payload.chain],
-        currentDropChain: null
+        currentDropChain: null,
       }
       // console.log(action.payload.currentDropId)
       return {
@@ -149,6 +148,25 @@ export const GlobalReducer = (state: any, action: any) => {
       }
     }
 
+    case 'CREATE_PRIMARY': {
+      // global
+      // console.log(`Trace: CREATE_PRIMARY()`)
+      let primaryCategories = [...state.primaryCategories]
+      primaryCategories.push(action.payload.entry)
+      return {
+        ...state,
+        primaryCategories: primaryCategories,
+      }
+    }
+
+    case 'SET_PRIMARY_CATEGORIES': {
+      // global
+      let primaryCategories = [...action.payload.primaryCategories]
+      return {
+        ...state,
+        primaryCategories: primaryCategories,
+      }
+    }
 
     default: {
       return state

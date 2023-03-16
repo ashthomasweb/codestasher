@@ -51,11 +51,11 @@ const App = (props: any): JSX.Element => {
   }, [dispatch])
 
   useEffect(() => {
-    dispatch({
+    globalDispatch({
       type: 'SET_PRIMARY_CATEGORIES',
       payload: { primaryCategories: [guestData] },
     })
-  }, [dispatch])
+  }, [globalDispatch])
 
   let userAuth = getAuth()
   useEffect(() => {
