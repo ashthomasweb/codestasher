@@ -62,6 +62,7 @@ const AddPane = (props: any): JSX.Element => {
   } = useContext(MainContext)
   const {
     state: { userObj },
+    globalDispatch
   } = useContext(GlobalContext)
 
   let [lengthAlert, setLengthAlert]: any = useState(false)
@@ -89,7 +90,7 @@ const AddPane = (props: any): JSX.Element => {
       entries: [],
       codePacket: [],
     }
-    dispatch({
+    globalDispatch({
       type: 'CREATE_PRIMARY',
       payload: { entry: dataPacket },
     })
@@ -108,7 +109,7 @@ const AddPane = (props: any): JSX.Element => {
       dataPack
     )
     await savePrimaryCategoryToDB(newWorkingObject)
-    gatherUserPrimaryCategoriesFromDB(userObj.auth, dispatch)
+    gatherUserPrimaryCategoriesFromDB(userObj.auth, globalDispatch)
   }
 
   /* Subcategory Actions */
@@ -142,7 +143,7 @@ const AddPane = (props: any): JSX.Element => {
     )
 
     await savePrimaryCategoryToDB(newWorkingObject)
-    gatherUserPrimaryCategoriesFromDB(userObj.auth, dispatch)
+    gatherUserPrimaryCategoriesFromDB(userObj.auth, globalDispatch)
   }
 
   /* SubSubcategory Actions */
@@ -179,7 +180,7 @@ const AddPane = (props: any): JSX.Element => {
     )
 
     await savePrimaryCategoryToDB(newWorkingObject)
-    gatherUserPrimaryCategoriesFromDB(userObj.auth, dispatch)
+    gatherUserPrimaryCategoriesFromDB(userObj.auth, globalDispatch)
   }
 
   /* Final Category Actions */
@@ -223,7 +224,7 @@ const AddPane = (props: any): JSX.Element => {
     )
 
     await savePrimaryCategoryToDB(newWorkingObject)
-    gatherUserPrimaryCategoriesFromDB(userObj.auth, dispatch)
+    gatherUserPrimaryCategoriesFromDB(userObj.auth, globalDispatch)
   }
 
   const lengthListener = () => {

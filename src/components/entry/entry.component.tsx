@@ -22,9 +22,7 @@ import {
   /* Database */
   savePrimaryCategoryToDB,
   gatherUserPrimaryCategoriesFromDB,
-  gatherSinglePrimaryCategoryFromDB,
   /* Helper Functions */
-  indexFinder,
   treeSearchAndUpdateInPlace,
   moveEntry,
   findTreeEntry,
@@ -39,11 +37,11 @@ import { toast } from 'react-toastify'
 
 const Entry = (props: any): JSX.Element => {
   const {
-    state: { workingObject, display, editorPacket },
+    state: { workingObject, display  },
     dispatch,
   } = useContext(MainContext)
   const {
-    state: { userObj, globalDragData },
+    state: { userObj, globalDragData, editorPacket },
     globalDispatch,
   } = useContext(GlobalContext)
 
@@ -63,7 +61,7 @@ const Entry = (props: any): JSX.Element => {
       )
 
       await savePrimaryCategoryToDB(newWorkingObject)
-      gatherUserPrimaryCategoriesFromDB(userObj.auth, dispatch)
+      gatherUserPrimaryCategoriesFromDB(userObj.auth, globalDispatch)
       if (props.pane === 'subsub') {
         dispatch({
           type: 'CLOSE_FINAL_PANE',
@@ -100,7 +98,7 @@ const Entry = (props: any): JSX.Element => {
   const openCodePane = (e: any) => {
     e.stopPropagation()
 
-    dispatch({
+    globalDispatch({
       type: 'SEND_ENTRY_TO_EDITOR',
       payload: { editorPacket: props.data },
     })

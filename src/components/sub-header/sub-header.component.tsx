@@ -30,12 +30,12 @@ import './sub-header.styles.scss'
 
 const SubHeader = (props: any): JSX.Element => {
   const {
-    state: { primaryCategories, display },
+    state: { display },
     dispatch,
   } = useContext(MainContext)
   const {
-    state: {},
-    globalDispatch,
+    state: {primaryCategories},
+    
   } = useContext(GlobalContext)
 
   const toggleAddPane = () => {

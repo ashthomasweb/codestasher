@@ -43,6 +43,9 @@ interface initialStateType {
   }
   subSubPaneEntry: any
   subPaneEntry: any
+  primaryCategories: any[]
+  editorPacket: any
+  aceObj: any
 }
 
 /** INITIAL STATE DECLARATION **************************************/
@@ -64,6 +67,9 @@ const initialState = {
   },
   subSubPaneEntry: {},
   subPaneEntry: {},
+  primaryCategories: [],
+  editorPacket: {},
+  aceObj: null,
 }
 
 export const GlobalContext = createContext<{

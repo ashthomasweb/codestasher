@@ -24,6 +24,7 @@ import {
 export const GlobalReducer = (state: any, action: any) => {
 
   switch (action.type) {
+
     case 'SET_CURRENT_USER_TO_STATE': {
       // console.log(`Trace: SET_CURRENT_USER_TO_STATE()`)
       let data = action.payload.userObj
@@ -42,7 +43,6 @@ export const GlobalReducer = (state: any, action: any) => {
         userObj: userObj,
       }
     }
-
 
     case 'ADMIN_PAGE_ON': {
       // console.log(`Trace: ADMIN_PAGE_ON()`)
@@ -93,9 +93,8 @@ export const GlobalReducer = (state: any, action: any) => {
         currentDropPaneId: null,
         currentDropId: action.payload.currentDropId,
         currentDropChain: [...action.payload.chain],
-        currentDropPaneChain: null
+        currentDropPaneChain: null,
       }
-      // console.log(action.payload.currentDropId)
       return {
         ...state,
         globalDragData: globalDragData,
@@ -108,7 +107,6 @@ export const GlobalReducer = (state: any, action: any) => {
         ...state.globalDragData,
         currentDraggingId: action.payload.currentDraggingId,
       }
-      // console.log(action.payload.currentDropId)
       return {
         ...state,
         globalDragData: globalDragData,
@@ -122,9 +120,8 @@ export const GlobalReducer = (state: any, action: any) => {
         currentDropPaneId: action.payload.currentDropPaneId,
         currentDropId: null,
         currentDropPaneChain: [...action.payload.chain],
-        currentDropChain: null
+        currentDropChain: null,
       }
-      // console.log(action.payload.currentDropId)
       return {
         ...state,
         globalDragData: globalDragData,
@@ -149,6 +146,41 @@ export const GlobalReducer = (state: any, action: any) => {
       }
     }
 
+    case 'CREATE_PRIMARY': {
+      // console.log(`Trace: CREATE_PRIMARY()`)
+      let primaryCategories = [...state.primaryCategories]
+      primaryCategories.push(action.payload.entry)
+      return {
+        ...state,
+        primaryCategories: primaryCategories,
+      }
+    }
+
+    case 'SET_PRIMARY_CATEGORIES': {
+      let primaryCategories = [...action.payload.primaryCategories]
+      return {
+        ...state,
+        primaryCategories: primaryCategories,
+      }
+    }
+
+    case 'SEND_ENTRY_TO_EDITOR': {
+      let editorPacket = {
+        ...action.payload.editorPacket,
+      }
+      return {
+        ...state,
+        editorPacket: editorPacket,
+      }
+    }
+
+    case 'SET_ACE': {
+      // console.log(`Trace: SET_ACE()`)
+      return {
+        ...state,
+        aceObj: action.payload.aceObj,
+      }
+    }
 
     default: {
       return state

@@ -43,19 +43,19 @@ const App = (props: any): JSX.Element => {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore - Request for 'ace' object comes from cdn, therefore not available for the typecheck on compilation - no actual functional error
       let editor = window.ace
-      dispatch({
+      globalDispatch({
         type: 'SET_ACE',
         payload: { aceObj: editor },
       })
     }
-  }, [dispatch])
+  }, [globalDispatch])
 
   useEffect(() => {
-    dispatch({
+    globalDispatch({
       type: 'SET_PRIMARY_CATEGORIES',
       payload: { primaryCategories: [guestData] },
     })
-  }, [dispatch])
+  }, [globalDispatch])
 
   let userAuth = getAuth()
   useEffect(() => {

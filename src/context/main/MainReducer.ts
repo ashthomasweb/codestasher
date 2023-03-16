@@ -15,6 +15,15 @@
 export const MainReducer = (state: any, action: any) => {
 
   switch (action.type) {
+
+    case 'SET_WORKING_OBJECT': {
+      let workingObject = action.payload.workingObject
+      return {
+        ...state,
+        workingObject: workingObject,
+      }
+    }
+
     case 'TOG_USER_DROP_DOWN': {
       // console.log(`Trace: TOG_USER_DROP_DOWN()`)
       let display = {
@@ -44,32 +53,6 @@ export const MainReducer = (state: any, action: any) => {
       return {
         ...state,
         display: display,
-      }
-    }
-
-    case 'CREATE_PRIMARY': {  // global
-      // console.log(`Trace: CREATE_PRIMARY()`)
-      let primaryCategories = [...state.primaryCategories]
-      primaryCategories.push(action.payload.entry)
-      return {
-        ...state,
-        primaryCategories: primaryCategories,
-      }
-    }
-
-    case 'SET_PRIMARY_CATEGORIES': { // global
-      let primaryCategories = [...action.payload.primaryCategories]
-      return {
-        ...state,
-        primaryCategories: primaryCategories,
-      }
-    }
-
-    case 'SET_WORKING_OBJECT': { // global
-      let workingObject = action.payload.workingObject
-      return {
-        ...state,
-        workingObject: workingObject,
       }
     }
 
@@ -176,8 +159,8 @@ export const MainReducer = (state: any, action: any) => {
       }
     }
 
-    case 'SET_CURRENT_SUB_ENTRY': {  // global
-      // console.log(`Trace: SET_CURRENT_SUB_ENTRY()`) 
+    case 'SET_CURRENT_SUB_ENTRY': {
+      // console.log(`Trace: SET_CURRENT_SUB_ENTRY()`)
       let display = {
         ...state.display,
         currentSubEntryData: action.payload.currentSubEntryData,
@@ -188,7 +171,7 @@ export const MainReducer = (state: any, action: any) => {
       }
     }
 
-    case 'SET_FINAL_ID': {  // global
+    case 'SET_FINAL_ID': { // poorly named
       let display = {
         ...state.display,
         finalPaneEntryData: action.payload.finalPaneEntryData,
@@ -196,24 +179,6 @@ export const MainReducer = (state: any, action: any) => {
       return {
         ...state,
         display: display,
-      }
-    }
-
-    case 'SEND_ENTRY_TO_EDITOR': { // global
-      let editorPacket = {
-        ...action.payload.editorPacket,
-      }
-      return {
-        ...state,
-        editorPacket: editorPacket,
-      }
-    }
-
-    case 'SET_ACE': { // global
-      // console.log(`Trace: SET_ACE()`)
-      return {
-        ...state,
-        aceObj: action.payload.aceObj,
       }
     }
 
@@ -242,6 +207,7 @@ export const MainReducer = (state: any, action: any) => {
     default: {
       return state
     }
+
   }
 }
 
