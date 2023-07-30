@@ -18,7 +18,7 @@ import { MainContext } from '../../context/main/MainState'
 import { GlobalContext } from '../../context/global/GlobalState'
 
 import React from 'react'
-import { signInWithPopup, GoogleAuthProvider,getAuth, onAuthStateChanged  } from 'firebase/auth'
+import { signInWithPopup, GoogleAuthProvider, getAuth, onAuthStateChanged, setPersistence, browserSessionPersistence  } from 'firebase/auth'
 
 import { 
   /* Assets */
@@ -38,18 +38,19 @@ const SignInUp = () => {
     dispatch,
   } = useContext(MainContext)
   const {
-    state: { userObj },
     globalDispatch,
   } = useContext(GlobalContext)
 
   const firebaseSignIn = () => {
     const provider = new GoogleAuthProvider()
+
+
     signInWithPopup(authentication, provider)
       .then((result) => {
-        globalDispatch({
-          type: 'SET_CURRENT_USER_TO_STATE',
-          payload: { userObj: result.user },
-        })
+        // globalDispatch({
+        //   type: 'SET_CURRENT_USER_TO_STATE',
+        //   payload: { userObj: result.user },
+        // })
         let userAuth = getAuth()
         const unSubAuth = onAuthStateChanged(userAuth, async (userAuth: any) => {
           if (result.user) {
@@ -62,6 +63,7 @@ const SignInUp = () => {
               display.isInitialModal
             )
           } else if (result.user == null) {
+            console.log('from else/if')
             globalDispatch({
               type: 'SET_CURRENT_USER_TO_STATE',
               payload: { userObj: null },
@@ -83,7 +85,6 @@ const SignInUp = () => {
         Organize your process.
       </span>
       <button
-        // type='button'
         onClick={firebaseSignIn}>
         Sign Up With Google
       </button>

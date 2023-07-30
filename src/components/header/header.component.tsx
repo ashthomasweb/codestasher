@@ -14,12 +14,10 @@
 
 ******************************************************************************/
 
-import { useContext, useRef, useState } from 'react'
+import { useContext, useRef } from 'react'
 import { MainContext } from '../../context/main/MainState'
 import { GlobalContext } from '../../context/global/GlobalState'
-
 import { ToastContainer } from 'react-toastify'
-// import cloneDeep from 'lodash.clonedeep'
 
 import {
   /* Assets */
@@ -33,14 +31,6 @@ import {
 import 'react-toastify/dist/ReactToastify.css'
 import './header.styles.scss'
 
-const modalToggle = () => {
-  // NEEDS DISPLAY REDUCER - no DOM queries!
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  let el: any = document.querySelector('.sign-modal').style
-  el.display === 'block' ? (el.display = 'none') : (el.display = 'block')
-}
-
 const Header = (props: any): JSX.Element => {
   const {
     state: { display },
@@ -51,7 +41,6 @@ const Header = (props: any): JSX.Element => {
     state: { userObj },
   } = useContext(GlobalContext)
 
-  const diagramTitle: any = useRef(null)
   const headerRef: any = useRef(null)
   const charRef1: any = useRef(null)
   const charRef2: any = useRef(null)
@@ -65,23 +54,13 @@ const Header = (props: any): JSX.Element => {
   const charRef10: any = useRef(null)
   const charRef11: any = useRef(null)
 
-  let [devBarOut, setDevBarOut] = useState(false)
-
-  const devBarTog = () => {
-    setDevBarOut(!devBarOut)
+  const modalToggle = () => {
+    dispatch({type: 'SIGN_UP_MODAL_TOG'})
   }
-
-  // const displayResourcesObject = () => {
-  //   console.log(boardObj.resourcesObjectArray)
-  // }
 
   function signOutDropDown() {
     dispatch({ type: 'TOG_USER_DROP_DOWN' })
   }
-
-  // function notificationsDropDown() {
-  //   dispatch({ type: 'TOG_NOTIF_DROP_DOWN' })
-  // }
 
   const titleAnimator = () => {
 
@@ -154,7 +133,6 @@ const Header = (props: any): JSX.Element => {
     }
  
   }
-
   
   return (
     <div
@@ -235,7 +213,6 @@ const Header = (props: any): JSX.Element => {
             r
           </span>
         </h1>
-        {/* <h1>CodeStasher</h1> */}
       </div>
       {
         <ToastContainer
@@ -245,13 +222,7 @@ const Header = (props: any): JSX.Element => {
           limit={3}
         />
       }
-      {/* {globalDisplay.isAdminPage && <SearchBar />} */}
-
-      {/* {globalDisplay.isBoardPage && (
-        <div style={{ position: 'relative' }}>
-          <EnvironmentMenu />
-        </div>
-      )} */}
+     
 
       {/* USER ACCOUNT BUTTON */}
       {userObj && (
@@ -273,19 +244,18 @@ const Header = (props: any): JSX.Element => {
         </button>
       )}
 
-      {/* SIGN UP - WELCOME PAGE ONLY */}
       {userObj === null && (
         <div>
           <button
             type='button'
             className='sign-up-btn'
-            onClick={() => modalToggle()}>
+            onClick={modalToggle}>
             Sign Up Free
           </button>
         </div>
       )}
 
-      <div className='sign-modal'>
+      <div className='sign-modal' style={{display: `${display.isSignUpModalOpen ? 'block' : 'none'}`}}>
         <SignInUpModal />
       </div>
     </div>

@@ -20,6 +20,7 @@ import { getAuth } from 'firebase/auth'
 
 import { 
   /* Assets */
+  guestData
   /* Database */
   /* Helper Functions */
   /* Components */
@@ -35,9 +36,14 @@ const UserDropMenu = (props: any): JSX.Element => {
   function signOutHandler() {
     const auth = getAuth()
     auth.signOut()
-    globalDispatch({ type: 'WELCOME_PAGE_ON' })
+    // globalDispatch({ type: 'WELCOME_PAGE_ON' })
     dispatch({ type: 'TOG_USER_DROP_DOWN' })
     globalDispatch({ type: 'SIGN_USER_OUT' })
+    // dispatch({type: 'SIGN_UP_MODAL_CLOSE'})
+    globalDispatch({
+      type: 'SET_PRIMARY_CATEGORIES',
+      payload: { primaryCategories: [guestData] },
+    })
   }
 
   return (

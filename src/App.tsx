@@ -14,15 +14,12 @@
 ******************************************************************************/
 
 import { useContext, useEffect } from 'react'
-import { MainContext } from './context/main/MainState'
 import { GlobalContext } from './context/global/GlobalState'
-import { getAuth } from 'firebase/auth'
 
 import {
   /* Assets */
   guestData,
   /* Database */
-  authListener,
   /* Helper Functions */
   /* Components */
   DisplayPane,
@@ -30,10 +27,7 @@ import {
 } from './export-hub'
 
 const App = (props: any): JSX.Element => {
-  const {
-    state: { display },
-    dispatch,
-  } = useContext(MainContext)
+  
   const { globalDispatch } = useContext(GlobalContext)
 
   useEffect(() => {
@@ -56,11 +50,6 @@ const App = (props: any): JSX.Element => {
       payload: { primaryCategories: [guestData] },
     })
   }, [globalDispatch])
-
-  let userAuth = getAuth()
-  useEffect(() => {
-    authListener(display, dispatch, globalDispatch, userAuth)
-  }, [dispatch])
 
   return <DisplayPane />
 }

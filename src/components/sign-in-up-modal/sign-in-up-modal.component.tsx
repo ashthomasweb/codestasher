@@ -16,6 +16,9 @@
 ******************************************************************************/
 import React from 'react'
 
+import { useContext } from 'react'
+import { MainContext } from '../../context/main/MainState'
+
 import { 
   /* Assets */
   /* Database */
@@ -28,13 +31,12 @@ import {
 import './sign-in-up-modal.styles.scss'
 
 const SignInUpModal = () => {
-
+  const {
+    dispatch,
+  } = useContext(MainContext)
+  
   const modalToggle = () => {
-    // Needs display reducer call
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    let el = document.querySelector('.sign-modal').style
-    el.display === 'block' ? (el.display = 'none') : (el.display = 'block')
+    dispatch({type: 'SIGN_UP_MODAL_TOG'})
   }
 
   return (

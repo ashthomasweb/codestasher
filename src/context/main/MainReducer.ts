@@ -204,6 +204,29 @@ export const MainReducer = (state: any, action: any) => {
       }
     }
 
+    case 'SIGN_UP_MODAL_TOG': {
+      let display = {
+        ...state.display,
+        isSignUpModalOpen: !state.display.isSignUpModalOpen,
+      }
+      return {
+        ...state,
+        display: display,
+      }
+    }
+
+    
+    case 'SIGN_UP_MODAL_CLOSE': {
+      let display = {
+        ...state.display,
+        isSignUpModalOpen: false,
+      }
+      return {
+        ...state,
+        display: display,
+      }
+    }
+
     default: {
       return state
     }

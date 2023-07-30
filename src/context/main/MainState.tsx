@@ -59,6 +59,7 @@ const initialState = {
     headerHeight: 62,
     subheaderHeight: 89,
     isCodePaneOpen: false,
+    isSignUpModalOpen: false
   },
   workingObject: {},
 }

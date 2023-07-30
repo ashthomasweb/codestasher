@@ -14,7 +14,7 @@
 
 .code-pane {
   width: 700px;
-  height: 882px;
+  height: calc(100vh - 156px);
   right: 0;
   position: absolute;
   bottom: 0;
