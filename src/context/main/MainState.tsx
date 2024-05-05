@@ -31,21 +31,6 @@ interface initialStateType {
   workingObject: any
 }
 
-// interface entryType {
-//   id: number
-//   type: string
-//   title: string
-//   subtitle: string
-//   entries: any[]
-//   codePacket: any[]
-// }
-
-// interface codePack {
-//   title: string
-//   languageExt: string
-//   content: string
-// }
-
 /** INITIAL STATE DECLARATION **************************************/
 
 const initialState = {

@@ -69,15 +69,17 @@ const AceWindow = (props: any): JSX.Element => {
   ])
 
   const updateFileContent = (e: any, index: number) => {
+    console.log('TRACE: updateFileContent')
     var editor = Ace.edit(`editor ${props.id}`)
     let newCodeContent = editor.getValue()
-      editorPacket.codePacket[index].content = newCodeContent
-    }
+    editorPacket.codePacket[index].content = newCodeContent // TODO: this shouldn't get getting set directly to state
+  } 
 
   return (
     <div
       id={`editor ${props.id}`}
-      onInput={(e) => updateFileContent(e, props.id)} // props.id is the index of parent
+      style={{pointerEvents: `${props.allowEdit ? 'all' : 'none'}`}}
+      onKeyUp={(e) => updateFileContent(e, props.id)} // props.id is the index of parent
       ref={currentEditor}
     />
   )

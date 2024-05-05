@@ -94,7 +94,6 @@ const SubcategoryPane = (props: any): JSX.Element => {
             : '2px solid #0000'
         }`,
       }}>
-      {/* <h6>{display.currentPrimaryEntryData.id}</h6> */}
       <h3>{display.currentPrimaryEntryData.title}</h3>
       <p>{display.currentPrimaryEntryData.subtitle}</p>
 

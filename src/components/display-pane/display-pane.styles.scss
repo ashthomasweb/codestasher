@@ -15,7 +15,13 @@
 .display-pane {
   display: flex;
   height: 100vh;
-  background-color: blue;
+
+  .primary-view {
+    position: relative;
+    width: 100vw;
+    height: calc(100vh - 161px);
+    top: 161px;
+  }
 }
 
 /* END of document ***********************************************************/

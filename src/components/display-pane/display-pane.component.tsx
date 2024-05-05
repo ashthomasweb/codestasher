@@ -32,7 +32,7 @@ import {
   PaneContainer,
   FinalPane,
   UserDropMenu,
-  CodePane
+  CodePane,
   /* Icons */
 } from '../../export-hub'
 
@@ -45,20 +45,20 @@ const DisplayPane = (props: any): JSX.Element => {
   } = useContext(MainContext)
   // const { state: { userObj, globalDisplay }, globalDispatch } = useContext(GlobalContext)
 
-
   return (
     <div className='display-pane'>
       <Header />
       <SubHeader />
-      <PaneContainer>
-        {display.isSubcategoryPaneOpen && <SubcategoryPane />}
-        {display.isSubSubcategoryPaneOpen && <SubSubcategoryPane />}
-        {display.isFinalPaneOpen && <FinalPane />}
-      </PaneContainer>
-      {display.isCodePaneOpen && <CodePane />}
-      {display.isUserDropDown && <UserDropMenu />}
-
-      {display.isAddPane && <AddPane />}
+      <div className='primary-view'>
+        <PaneContainer>
+          {display.isSubcategoryPaneOpen && <SubcategoryPane />}
+          {display.isSubSubcategoryPaneOpen && <SubSubcategoryPane />}
+          {display.isFinalPaneOpen && <FinalPane />}
+        </PaneContainer>
+        {display.isCodePaneOpen && <CodePane />}
+        {display.isUserDropDown && <UserDropMenu />}
+        {display.isAddPane && <AddPane />}
+      </div>
     </div>
   )
 }

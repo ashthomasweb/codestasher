@@ -14,7 +14,7 @@
 
 ******************************************************************************/
 
-import { useContext, useRef, useState } from 'react'
+import { useContext, useRef } from 'react'
 import { MainContext } from '../../context/main/MainState'
 import { GlobalContext } from '../../context/global/GlobalState'
 
@@ -51,7 +51,6 @@ const Header = (props: any): JSX.Element => {
     state: { userObj },
   } = useContext(GlobalContext)
 
-  const diagramTitle: any = useRef(null)
   const headerRef: any = useRef(null)
   const charRef1: any = useRef(null)
   const charRef2: any = useRef(null)
@@ -65,26 +64,11 @@ const Header = (props: any): JSX.Element => {
   const charRef10: any = useRef(null)
   const charRef11: any = useRef(null)
 
-  let [devBarOut, setDevBarOut] = useState(false)
-
-  const devBarTog = () => {
-    setDevBarOut(!devBarOut)
-  }
-
-  // const displayResourcesObject = () => {
-  //   console.log(boardObj.resourcesObjectArray)
-  // }
-
   function signOutDropDown() {
     dispatch({ type: 'TOG_USER_DROP_DOWN' })
   }
 
-  // function notificationsDropDown() {
-  //   dispatch({ type: 'TOG_NOTIF_DROP_DOWN' })
-  // }
-
   const titleAnimator = () => {
-
     let letterDelay = 80
 
     let charArray = [
@@ -155,7 +139,6 @@ const Header = (props: any): JSX.Element => {
  
   }
 
-  
   return (
     <div
       className='header'
@@ -235,7 +218,6 @@ const Header = (props: any): JSX.Element => {
             r
           </span>
         </h1>
-        {/* <h1>CodeStasher</h1> */}
       </div>
       {
         <ToastContainer
@@ -245,13 +227,6 @@ const Header = (props: any): JSX.Element => {
           limit={3}
         />
       }
-      {/* {globalDisplay.isAdminPage && <SearchBar />} */}
-
-      {/* {globalDisplay.isBoardPage && (
-        <div style={{ position: 'relative' }}>
-          <EnvironmentMenu />
-        </div>
-      )} */}
 
       {/* USER ACCOUNT BUTTON */}
       {userObj && (

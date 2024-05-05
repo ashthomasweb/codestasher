@@ -12,7 +12,7 @@
 
 ******************************************************************************/
 
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import { MainContext } from '../../context/main/MainState'
 import { GlobalContext } from '../../context/global/GlobalState'
 import { toast } from 'react-toastify'
@@ -92,7 +92,6 @@ const CodePane = (props: any): JSX.Element => {
   }
 
   const saveFileParams = async (e: any, id: number) => {
-    // console.log(e.target.previousSibling.previousSibling.previousSibling)
     let languageField = e.target.previousSibling.previousSibling.previousSibling
     let titleField =
       e.target.previousSibling.previousSibling.previousSibling.previousSibling
@@ -152,10 +151,8 @@ const CodePane = (props: any): JSX.Element => {
     } catch (err) {
       await toast('Failed to copy!')
       console.log('Failed to copy: ', err)
-
     }
   }
-
 
   return (
     <div className='code-pane'>
@@ -166,7 +163,6 @@ const CodePane = (props: any): JSX.Element => {
         Close
       </button>
       <p>{editorPacket.subtitle}</p>
-      {/* <br /> */}
       <input ref={fileNameRef} placeholder='filename.ext' type='text'></input>
       <input ref={fileExtRef} placeholder='language' type='text'></input>
       <button onClick={saveCodeFile}>Save To Entry</button>
@@ -188,9 +184,11 @@ const CodePane = (props: any): JSX.Element => {
                   style={inputStyle}
                   type='text'
                   defaultValue={file.language}></input>
-                <button onClick={() => editFileParams(index)}>{`${
-                  allowEdit ? 'Cancel' : 'Edit'
-                }`}</button>
+                <button 
+                    onClick={() => editFileParams(index)}>{`${
+                        allowEdit ? 'Cancel' : 'Edit'
+                    }`}
+                </button>
 
                 <button onClick={() => deleteFile(file.id)}>Delete</button>
                 {allowEdit && (
@@ -204,6 +202,7 @@ const CodePane = (props: any): JSX.Element => {
                   id={index}
                   codeContent={file.content}
                   language={file.language}
+                  allowEdit={allowEdit}
                 />
               </div>
             </div>

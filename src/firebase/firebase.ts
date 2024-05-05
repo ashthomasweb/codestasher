@@ -51,8 +51,7 @@ export const userInitializationHandler = async (
   callback: any,
   isInitialModal = false
 ) => {
-  if (!userAuth) return // prevent firing during lifecycle, before userAuth obj is obtained
-  // console.log(`Trace: userInitializationHandler()`)
+  if (!userAuth) return
 
   let domain = userAuth.email
   domainBasedCollectionName = domain
@@ -117,7 +116,6 @@ export const gatherUserPrimaryCategoriesFromDB = async (
   userAuth: any,
   globalDispatch: any
 ) => {
-  // console.log(`Trace: gatherUserPrimaryCategoriesFromDB()`)
   if (!userAuth) return
   let primaryCategories: any = []
   let parsedArray: any[] = []
@@ -143,7 +141,6 @@ export const gatherUserPrimaryCategoriesFromDB = async (
 }
 
 export const gatherSinglePrimaryCategoryFromDB = async (userAuth: any, id: any) => {
-  // console.log(`Trace: gatherSinglePrimaryCategoryFromDB()`)
   if (!userAuth) return
   let workingObject: any
   const userCategoryFirestoreRef = await collection(
@@ -222,7 +219,6 @@ export const authListener = (
   globalDispatch: (input: any) => void,
   userAuth: any
 ) => {
-  // let userAuth = getAuth()
   const unSubAuth = onAuthStateChanged(userAuth, async (userAuth: any) => {
     if (userAuth) {
       await userInitializationHandler(

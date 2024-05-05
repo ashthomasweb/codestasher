@@ -13,7 +13,7 @@
 
 ******************************************************************************/
 
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { MainContext } from '../../context/main/MainState'
 
 import { 
@@ -28,23 +28,14 @@ import './pane-container.styles.scss'
 
 const PaneContainer = (props: any): JSX.Element => {
   const {
-    state: { display },
-    dispatch,
+    state: { display }
   } = useContext(MainContext)
-
-
-  // useEffect(() => {
-   
-  // }, [])  
 
 
   return (
     <div className='pane-container' style={{height: `calc(100vh - ${display.headerHeight + display.subheaderHeight + 10}px)`}}>
       <div className='inner-wrapper'>
         {props.children}
-
-      
-
       </div>
     </div>
   )

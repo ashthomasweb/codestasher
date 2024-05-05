@@ -43,12 +43,6 @@ const PrimaryCategory = (props: any): JSX.Element => {
   } = useContext(GlobalContext)
 
   let [activeBorder, setActiveBorder]: any = useState(false)
-  let [borderSwitch, setBorderSwitch]: any = useState(false)
-
-  const clickHandler = (e: any) => {
-    setBorderSwitch(!borderSwitch)
-    // props.data.codePacket.length > 0 ? openCodePane(e) : openPane()
-  }
 
   useEffect(() => {
       if (
@@ -62,7 +56,7 @@ const PrimaryCategory = (props: any): JSX.Element => {
       if (display.isSubcategoryPaneOpen === false) {
         setActiveBorder(false)
       }
-  }, [workingObject, borderSwitch, display.isSubcategoryPaneOpen])
+  }, [workingObject, display.isSubcategoryPaneOpen, props.data.id])
 
   const deleteCategory = async (e: any) => {
     e.stopPropagation()
@@ -94,7 +88,6 @@ const PrimaryCategory = (props: any): JSX.Element => {
   }
 
   const openSubcategoryPane = async (e: any) => {
-    setBorderSwitch(!borderSwitch)
     let obj
     if (userObj === null) {
       obj = guestData
@@ -111,7 +104,6 @@ const PrimaryCategory = (props: any): JSX.Element => {
     let entryPacket = cloneDeep(obj)
     delete entryPacket.entries
     delete entryPacket.codePacket
-    // debugger
     dispatch({
       type: 'OPEN_PRIMARY_PANE',
       payload: { entryData: entryPacket },

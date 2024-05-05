@@ -83,7 +83,6 @@ const SignInUp = () => {
         Organize your process.
       </span>
       <button
-        // type='button'
         onClick={firebaseSignIn}>
         Sign Up With Google
       </button>
