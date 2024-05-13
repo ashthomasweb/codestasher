@@ -71,10 +71,12 @@ export const userInitializationHandler = async (
       }
       try {
         await setDoc(doc(db, 'users', domainBasedCollectionName), user)
+        console.log('no exist')
         await globalDispatch({
           type: 'SET_CURRENT_USER_TO_STATE',
           payload: { userObj: user },
         })
+        dispatch({type: 'SIGN_UP_MODAL_TOG'})
         toast('User created!')
         // await unSubFirestore()
       } catch (error: any) {
@@ -87,11 +89,13 @@ export const userInitializationHandler = async (
         ...userObjFromDB,
         auth: userAuth,
       }
-
+      console.log('exists')
       globalDispatch({
         type: 'SET_CURRENT_USER_TO_STATE',
         payload: { userObj: userObjFromDB },
       })
+      dispatch({type: 'SIGN_UP_MODAL_TOG'})
+
       gatherUserPrimaryCategoriesFromDB(userAuth, globalDispatch)
       toast('User logged in')
     }
@@ -211,31 +215,6 @@ export const savePrimaryCategoryToDB = async (dataPacket: any) => {
       toast('error creating category')
     }
   }
-}
-
-export const authListener = (
-  display: any,
-  dispatch: (input:any) => void,
-  globalDispatch: (input: any) => void,
-  userAuth: any
-) => {
-  const unSubAuth = onAuthStateChanged(userAuth, async (userAuth: any) => {
-    if (userAuth) {
-      await userInitializationHandler(
-        userAuth,
-        dispatch,
-        globalDispatch,
-        null,
-        unSubAuth,
-        display.isInitialModal
-      )
-    } else if (userAuth === null) {
-      globalDispatch({
-        type: 'SET_CURRENT_USER_TO_STATE',
-        payload: { userObj: null },
-      })
-    }
-  })
 }
 
 /* END of document ***********************************************************/

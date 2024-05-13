@@ -17,9 +17,7 @@
 import { useContext, useRef } from 'react'
 import { MainContext } from '../../context/main/MainState'
 import { GlobalContext } from '../../context/global/GlobalState'
-
 import { ToastContainer } from 'react-toastify'
-// import cloneDeep from 'lodash.clonedeep'
 
 import {
   /* Assets */
@@ -32,14 +30,6 @@ import {
 
 import 'react-toastify/dist/ReactToastify.css'
 import './header.styles.scss'
-
-const modalToggle = () => {
-  // NEEDS DISPLAY REDUCER - no DOM queries!
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  let el: any = document.querySelector('.sign-modal').style
-  el.display === 'block' ? (el.display = 'none') : (el.display = 'block')
-}
 
 const Header = (props: any): JSX.Element => {
   const {
@@ -63,6 +53,10 @@ const Header = (props: any): JSX.Element => {
   const charRef9: any = useRef(null)
   const charRef10: any = useRef(null)
   const charRef11: any = useRef(null)
+
+  const modalToggle = () => {
+    dispatch({type: 'SIGN_UP_MODAL_TOG'})
+  }
 
   function signOutDropDown() {
     dispatch({ type: 'TOG_USER_DROP_DOWN' })
@@ -248,19 +242,18 @@ const Header = (props: any): JSX.Element => {
         </button>
       )}
 
-      {/* SIGN UP - WELCOME PAGE ONLY */}
       {userObj === null && (
         <div>
           <button
             type='button'
             className='sign-up-btn'
-            onClick={() => modalToggle()}>
+            onClick={modalToggle}>
             Sign Up Free
           </button>
         </div>
       )}
 
-      <div className='sign-modal'>
+      <div className='sign-modal' style={{display: `${display.isSignUpModalOpen ? 'block' : 'none'}`}}>
         <SignInUpModal />
       </div>
     </div>

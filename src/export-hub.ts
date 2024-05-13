@@ -27,7 +27,6 @@ import {
   userInitializationHandler,
   savePrimaryCategoryToDB,
   gatherUserPrimaryCategoriesFromDB,
-  authListener,
   gatherSinglePrimaryCategoryFromDB,
 } from './firebase/firebase'
 
@@ -75,7 +74,6 @@ export {
   userInitializationHandler,
   savePrimaryCategoryToDB,
   gatherUserPrimaryCategoriesFromDB,
-  authListener,
   gatherSinglePrimaryCategoryFromDB,
 }
 
