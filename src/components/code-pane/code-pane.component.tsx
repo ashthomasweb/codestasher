@@ -44,11 +44,9 @@ const CodePane = (props: any): JSX.Element => {
 
   const fileNameRef: any = useRef(null)
   const fileExtRef: any = useRef(null)
-  const fileContentRef: any = useRef(null)
   const fileTitleRef: any = useRef(null)
   const fileLanguageRef: any = useRef(null)
 
-  const [editIndex, setEditIndex]: any = useState(null)
   const [allowEdit, setAllowEdit]: any = useState(null)
 
   interface codePackType {
@@ -88,7 +86,6 @@ const CodePane = (props: any): JSX.Element => {
 
   const editFileParams = (index: number) => {
     setAllowEdit(!allowEdit)
-    setEditIndex(index)
   }
 
   const saveFileParams = async (e: any, id: number) => {

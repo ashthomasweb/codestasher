@@ -13,8 +13,8 @@
 ******************************************************************************/
 
 import { useContext, useEffect, useRef } from 'react'
-// import { MainContext } from '../../context/main/MainState'
 import { GlobalContext } from '../../context/global/GlobalState'
+
 import { 
   /* Assets */
   /* Database */
@@ -26,9 +26,6 @@ import {
 import './ace-window.styles.scss'
 
 const AceWindow = (props: any): JSX.Element => {
-  // const {
-  //   state: {  },
-  // } = useContext(MainContext)
 
   const {
     state: { editorPacket, aceObj },

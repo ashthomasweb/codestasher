@@ -14,29 +14,29 @@
 ******************************************************************************/
 
 .final-pane-container {
-  width: 290px;
-  padding: 10px;
-  height: 100%;
-  right: -598px;
-  top: 0;
-  position: absolute;
-  display: inline-block;
-  background-color: #1e1e1e;
-  user-select: none;
-  transition: outline 0.2s cubic-bezier( 0, 0.25, 0.97, -0.1 ) ;
+    width: 290px;
+    padding: 10px;
+    height: 100%;
+    right: -598px;
+    top: 0;
+    position: absolute;
+    display: inline-block;
+    background-color: #1e1e1e;
+    user-select: none;
+    transition: outline 0.2s cubic-bezier(0, 0.25, 0.97, -0.1);
 
-  h3 {
-    margin: 0;
-    font-family: var(--font-monospace);
-    font-weight: 600;
-  }
+    h3 {
+        margin: 0;
+        font-family: var(--font-monospace);
+        font-weight: 600;
+    }
 
-  p {
-    font-style: italic;
-    margin: 0;
-    font-size: 14px;
-    font-family: var(--font-monospace);
-  }
+    p {
+        font-style: italic;
+        margin: 0;
+        font-size: 14px;
+        font-family: var(--font-monospace);
+    }
 }
 
 /* END of document ***********************************************************/

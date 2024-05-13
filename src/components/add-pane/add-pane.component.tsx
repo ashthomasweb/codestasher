@@ -211,21 +211,21 @@ const AddPane = (props: any): JSX.Element => {
     savePrimaryCategoryToDB(workingObject)
   }
 
-  const editFinalcat = async (e: any) => {
-    let dataPack = {
-      title: primaryRef.current.value,
-      subtitle: subtitleRef.current.value,
-    }
-    let newWorkingObject = treeSearchAndUpdateInPlace(
-      workingObject,
-      display.editId,
-      display.idChain,
-      dataPack
-    )
+//   const editFinalcat = async (e: any) => {
+//     let dataPack = {
+//       title: primaryRef.current.value,
+//       subtitle: subtitleRef.current.value,
+//     }
+//     let newWorkingObject = treeSearchAndUpdateInPlace(
+//       workingObject,
+//       display.editId,
+//       display.idChain,
+//       dataPack
+//     )
 
-    await savePrimaryCategoryToDB(newWorkingObject)
-    gatherUserPrimaryCategoriesFromDB(userObj.auth, globalDispatch)
-  }
+//     await savePrimaryCategoryToDB(newWorkingObject)
+//     gatherUserPrimaryCategoriesFromDB(userObj.auth, globalDispatch)
+//   }
 
   const lengthListener = () => {
     if (primaryRef.current.value === null) return

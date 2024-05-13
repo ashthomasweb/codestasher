@@ -16,7 +16,7 @@
 ******************************************************************************/
 
 import { initializeApp } from 'firebase/app'
-import { getAuth, onAuthStateChanged } from 'firebase/auth'
+import { getAuth } from 'firebase/auth'
 import { toast } from 'react-toastify'
 import { newEntry } from '../components/add-pane/add-pane.component'
 import cloneDeep from 'lodash.clonedeep'
@@ -48,8 +48,6 @@ export const userInitializationHandler = async (
   dispatch: any,
   globalDispatch: any,
   additionalData: any = null,
-  callback: any,
-  isInitialModal = false
 ) => {
   if (!userAuth) return
 
@@ -78,7 +76,6 @@ export const userInitializationHandler = async (
         })
         dispatch({type: 'SIGN_UP_MODAL_TOG'})
         toast('User created!')
-        // await unSubFirestore()
       } catch (error: any) {
         console.log('error creating user', error.message)
       }

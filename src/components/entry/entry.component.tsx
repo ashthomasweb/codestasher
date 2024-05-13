@@ -294,7 +294,6 @@ const Entry = (props: any): JSX.Element => {
   }
 
   const dragIdHandler = (e: any) => {
-    // if (globalDragData.currentDropId === e.target.id) return
     e.stopPropagation()
     globalDispatch({
       type: 'SET_DRAG_ID',
@@ -332,8 +331,6 @@ const Entry = (props: any): JSX.Element => {
       onClick={clickHandler}
       draggable
       onDragOver={dragIdHandler}
-      // onDragExit={dragEntryReset}
-      // onDragExit
       onDragStart={setDraggingId}
       onDragEnd={fireDropEvent}>
       <div
@@ -401,7 +398,6 @@ const Entry = (props: any): JSX.Element => {
             }}
             onClick={openCodePane}>{`<>`}</button>
         )}
-        {/* <h6>{props.data.id}</h6> */}
         <h4>{props.data.title}</h4>
         <p>{props.data.subtitle.substring(0, 120)}</p>
       </div>
