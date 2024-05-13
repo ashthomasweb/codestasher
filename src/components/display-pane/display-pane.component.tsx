@@ -16,8 +16,7 @@
 
 import React from 'react'
 import { MainContext } from '../../context/main/MainState'
-import { GlobalContext } from '../../context/global/GlobalState'
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 
 import {
   /* Assets */
@@ -41,9 +40,7 @@ import './display-pane.styles.scss'
 const DisplayPane = (props: any): JSX.Element => {
   const {
     state: { display },
-    dispatch,
   } = useContext(MainContext)
-  // const { state: { userObj, globalDisplay }, globalDispatch } = useContext(GlobalContext)
 
   return (
     <div className='display-pane'>

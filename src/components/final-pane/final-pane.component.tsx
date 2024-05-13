@@ -74,7 +74,6 @@ const FinalPane = (props: any): JSX.Element => {
             : '2px solid #0000'
         }`,
       }}>
-      {/* <h3>{display.finalPaneEntryData.id}</h3> */}
       <h3>{display.finalPaneEntryData.title}</h3>
       <p>{display.finalPaneEntryData.subtitle}</p>
       {workingObject?.entries[

@@ -18,7 +18,7 @@ import { MainContext } from '../../context/main/MainState'
 import { GlobalContext } from '../../context/global/GlobalState'
 
 import React from 'react'
-import { signInWithPopup, GoogleAuthProvider, getAuth, onAuthStateChanged, setPersistence, browserSessionPersistence  } from 'firebase/auth'
+import { signInWithPopup, GoogleAuthProvider, getAuth, onAuthStateChanged } from 'firebase/auth'
 
 import { 
   /* Assets */
@@ -34,8 +34,7 @@ import './sign-in-up.styles.scss'
 
 const SignInUp = () => {
   const {
-    state: { display },
-    dispatch,
+    dispatch
   } = useContext(MainContext)
   const {
     globalDispatch,
@@ -47,20 +46,14 @@ const SignInUp = () => {
 
     signInWithPopup(authentication, provider)
       .then((result) => {
-        // globalDispatch({
-        //   type: 'SET_CURRENT_USER_TO_STATE',
-        //   payload: { userObj: result.user },
-        // })
         let userAuth = getAuth()
-        const unSubAuth = onAuthStateChanged(userAuth, async (userAuth: any) => {
+        onAuthStateChanged(userAuth, async (userAuth: any) => {
           if (result.user) {
             await userInitializationHandler(
               userAuth,
               dispatch,
               globalDispatch,
-              null,
-              unSubAuth,
-              display.isInitialModal
+              null
             )
           } else if (result.user == null) {
             console.log('from else/if')
